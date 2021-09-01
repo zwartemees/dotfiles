@@ -36,7 +36,9 @@ in
   };
 
   services.chrony ={
-      enable = true;     
+      enable = true;
+      enableNTS = true;
+      initstepslew.enabled = true;
       servers = [
       "time.google.com"
       "time.cloudflare.com"

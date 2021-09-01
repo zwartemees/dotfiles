@@ -17,7 +17,7 @@
   i18n.defaultLocale = "en_GB.UTF-8";
   swapDevices = [{
     device = "/swapfile";
-    size = 16 * 1024; # 16GB
+    size = 160 * 1024; # 16GB
   }];
   
   users.users.mees = {

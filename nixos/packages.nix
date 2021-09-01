@@ -23,7 +23,8 @@
 	nautilus
     networkmanagerapplet
     jetbrains.idea-ultimate
- 
+    discord
+
     #cli tools
     jetbrains.jdk
     gnumake
@@ -59,6 +60,7 @@
     hyprlock
     playerctl
     xwayland-satellite
+    nmgui
     (ignis.packages.${pkgs.system}.default.override {
         enableAudioService = true;  # enable audio support
         useDartSass = true;

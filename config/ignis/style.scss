@@ -17,13 +17,7 @@
   min-width: 3rem;
 
 }
-.mediaPlayer slider{
-  padding:0rem;
-  border-radius:1rem;
-}
-.mediaPlayer trough{
-  min-height: 1rem;
-}
+
 .bar{
   min-height: 70px;
 }
@@ -54,46 +48,45 @@
 .active {
   min-height: 5rem;
 }
-.controlCenterBlock{
+.buttonGrid{
   margin: 0rem 0rem;
   padding: 1rem;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
 }
-.controlCenterBlock a{
+.buttonGrid a{
   background-color: var(--border-color);
   opacity: 1;
 }
 
-.controlCenterBlock button *{
+.buttonGrid button *{
   opacity: 1;
 }
 
-.networkBlock{
-  border-radius: 1rem;
+.buttonGridButton{
+  border-radius: 2rem;
   min-height: 2.5rem;
-}
-.sliders{
-  min-width: 10rem;
-}
-.networkBlock box > * {
   margin: 0.5rem;
+  padding: 0.8rem;
 }
-.slider trough{
-min-height: 7rem;
-min-width: 1rem;
-}
+
 .image{
   border-radius: 1rem;
 }
-.sliders{
-  min-width: 2rem;
-  border-radius: 1rem;
-  padding: 0.5rem;
-}
+
 .powermenu button{
   border-radius : 1rem;
   padding: 0.5rem;
 }
+
 .slider slider{
-opacity:0;
+  opacity:0;
+}
+
+.slider trough{
+  min-height: 1rem;
+  min-width: 9rem;
+}
+
+.sliders{
+  min-width: 10rem;
 }

@@ -4,12 +4,37 @@ from ignis.services.network import NetworkService
 from ignis.services.bluetooth import BluetoothService
 from ignis.services.audio import AudioService
 from ignis.services.backlight import BacklightService
-
+from ignis.services.upower import UPowerDevice, UPowerService
+from src.utils import updateBatteryName
 backlight = BacklightService.get_default()
 mpris = MprisService.get_default()
 network = NetworkService.get_default()
 bluetoothService = BluetoothService.get_default()
 audio = AudioService.get_default()
+upower = UPowerService.get_default()
+
+class topBar(widgets.CenterBox):
+    def __init__(self):
+        super().__init__(
+            css_classes = ["topBar"],
+            start_widget = batteryButton(),
+            end_widget = powermenu()
+        )
+
+class batteryButton(widgets.Button):
+    def update(self, batteryIcon):
+        batteryIcon.image = updateBatteryName(batteryIcon)
+    def __init__(self):
+        batteryIcon = widgets.Icon(pixel_size=25)
+        utils.Poll(1000, lambda x: self.update(batteryIcon))
+        super().__init__(
+        css_classes = ["batteryButton"],
+        child = widgets.Box(child = [
+            batteryIcon,
+            widgets.Label(label = f"{upower.batteries[0].percent}%")
+        ])
+        )
+
 class powermenu(widgets.CenterBox):
     def __init__(self):
         super().__init__(
@@ -20,23 +45,19 @@ class powermenu(widgets.CenterBox):
                     spacing = 10,
                     child=[
                     widgets.Button(
-                        child=widgets.Icon(pixel_size=60, image="system-shut" ),
+                        child=widgets.Icon(pixel_size=25, image="system-shut" ),
                         on_click = lambda x : utils.exec_sh("shutdown now")
                     ),
                     widgets.Button(
-                        child=widgets.Icon(pixel_size=30, image="system-restart" ),
+                        child=widgets.Icon(pixel_size=25, image="system-restart" ),
                         on_click = lambda x : utils.exec_sh("shutdown -r now")
-                    )
-                ]),
-                widgets.Box(
-                    spacing = 10,
-                    child=[
+                    ),
                     widgets.Button(
-                        child=widgets.Icon(pixel_size=30, image="log-out" ),
+                        child=widgets.Icon(pixel_size=25, image="log-out" ),
                         on_click = lambda x : utils.exec_sh("niri msg action quit -s")
                     ),
                     widgets.Button(
-                        child=widgets.Icon(pixel_size=60, image = "lock-square"),
+                        child=widgets.Icon(pixel_size=25, image = "lock-square"),
                         on_click = lambda x: utils.exec_sh("hyprlock")
                     )
                 ])
@@ -46,17 +67,17 @@ class powermenu(widgets.CenterBox):
 class sliders(widgets.Button):
     def brightnessSlider(self):
         return widgets.Box(
-                vertical= True, 
-                spacing = 10,
-                css_classes = ["slider", "button"],
+                vertical= False,
+                spacing = 1,
+                css_classes = ["slider"],
                 child=[widgets.Icon(pixel_size=25,image="brightness"),
-                        widgets.Scale(vertical=True,
+                        widgets.Scale(
                             min=0,
                             max=backlight.max_brightness,
                             step=backlight.max_brightness/100,
                             value=backlight.brightness,
                             on_change=lambda x: setattr(backlight, "brightness", x.value),
-                            inverted=True
+                            inverted=False
                             )
                        ]
                 )
@@ -66,15 +87,15 @@ class sliders(widgets.Button):
 
     def volumeSlider(self):
         return widgets.Box(
-                vertical= True, 
-                spacing = 10,
+                vertical= False,
+                spacing = 1,
                 css_classes = ["slider"],
                 child=[widgets.Icon(pixel_size=25,image="sound-high"),
-                        widgets.Scale(vertical=True,
+                        widgets.Scale(
                             min=0,
-                            max=50,
+                            max=80,
                             step=0.01,
-                            inverted=True,
+                            inverted=False,
                             value=audio.speakers[-1].volume,
                             on_change=lambda x: self.setVolume(audio, x.value),
                                       )
@@ -85,9 +106,10 @@ class sliders(widgets.Button):
     def __init__(self):
         super().__init__(
             child=widgets.Box(
+                vertical = True,
                 child = [self.volumeSlider(), self.brightnessSlider()],
                 ),
-            css_classes = [ "sliders"],
+            css_classes = [ "sliders", "buttonGridButton"],
         )
 
 
@@ -100,17 +122,19 @@ class vpn(widgets.Button):
     def draw(self):
             if network.vpn.is_connected:
                 self.child = widgets.Box(
-                    child=[widgets.Icon(pixel_size=25,image="wireguard"), 
+                    vertical = True,
+                    child=[widgets.Icon(pixel_size=60,image="wireguard"),
                            widgets.Label(label=network.vpn.active_vpn_id)],
                     )
             else:
                 self.child = widgets.Box(
-                    child=[widgets.Icon(pixel_size=30,image="wireguard"),widgets.Label(label="not connected")],
+                        vertical = True,
+                    child=[widgets.Icon(pixel_size=60,image="wireguard"),widgets.Label(label="inactive")],
                     )
 
     def __init__(self):
         super().__init__(
-            css_classes = ["vpn","networkBlock"],
+            css_classes = ["vpn","buttonGridButton"],
             on_click = lambda self: self.toggel()
         )
         self.draw()
@@ -122,14 +146,18 @@ class bluetooth(widgets.Button):
     def draw(self):
             if len(self.service.connected_devices) >= 1:
                 self.child = widgets.CenterBox(
-                    start_widget=widgets.Box(child=[
-                        widgets.Icon(pixel_size=25,image="ignisbluetooth"), 
-                        widgets.Label(label=self.service.connected_devices[0].alias)]),
+                    start_widget=widgets.Box(
+                        vertical = True,
+                        child=[
+                            widgets.Icon(pixel_size=40,image="ignisbluetooth"),
+                            widgets.Label(label=self.service.connected_devices[0].alias)]
+                        ),
                     end_widget=widgets.Label(label=f"{bluetoothService.connected_devices[0].battery_percentage:3.0f}%"),
                     )
             else:
                 self.child = widgets.Box(
-                    child=[widgets.Icon(pixel_size=25,image="ignisbluetooth"),widgets.Label(label="no device connected")],
+                    vertical = True,
+                    child=[widgets.Icon(pixel_size=40,image="ignisbluetooth"),widgets.Label(label="no connection")],
                     spacing=15
                     )
     
@@ -137,7 +165,7 @@ class bluetooth(widgets.Button):
 
     def __init__(self):
         super().__init__(
-            css_classes = ["bluetooth","networkBlock"],
+            css_classes = ["bluetooth","buttonGridButton"],
             on_click = lambda self: utils.exec_sh("bzmenu -l walker -i xdg")
         )
         for device in bluetoothService.devices:
@@ -156,38 +184,52 @@ class wifi(widgets.Button):
     def draw(self):
             if self.service.ethernet.is_connected:
                 self.child = widgets.Box(
-                    child=[widgets.Icon(pixel_size=25,image="network"),
+                    vertical = True,
+                    child=[widgets.Icon(pixel_size=30,image="network"),
                     widgets.Label(label="wired connection")]
                     )
             elif self.service.wifi.is_connected:
-                self.child = widgets.CenterBox(
-                    start_widget = widgets.Box(child=[widgets.Icon(pixel_size=25,image="wifi"),
-                    widgets.Label(label=self.service.wifi.devices[0].ap.ssid)]), 
-                    end_widget=widgets.Label(label=f"{self.service.wifi.devices[0].ap.frequency/1000:1.1f}GHz"),
-                    )
+                self.child = widgets.Box(
+                    vertical = True,
+                    child=[
+                        widgets.Icon(pixel_size=30,image="wifi"),
+                        widgets.Label(label=self.service.wifi.devices[0].ap.ssid),
+                        widgets.Label(label=f"{self.service.wifi.devices[0].ap.frequency/1000:1.1f}GHz")
+                    ]
+                )
+
             else:
-                self.child = widgets.Box(child=[
-                    widgets.Icon(pixel_size=25,image="wifi-off"),
+                self.child = widgets.Box(
+                    vertical = True,
+                    child=[
+                    widgets.Icon(pixel_size=45,image="wifi-off"),
                     widgets.Label(label="not connected")]
                     )
             
     def __init__(self):
         super().__init__(
-            css_classes = ["wifi","networkBlock"],
+            css_classes = ["wifi","buttonGridButton"],
             on_click = lambda self: self.event(lambda: utils.exec_sh("nmgui"))
         )
         for device in self.service.wifi.devices:
             device.connect("notify::state", lambda x, y: self.draw())
         
         self.draw()
-class networkBlock(widgets.Box):
+class buttonGrid(widgets.Grid):
     def __init__(self):
+        margin = 30
         super().__init__(
-        css_classes= ["controlCenterBlock","network"],
-        child = [wifi(),bluetooth(),vpn()],
-        spacing = 10,
-        vertical = True
-                )
+        css_classes= ["buttonGrid"],
+        child = [wifi(),bluetooth(),sliders(), vpn(),],
+        column_num=2,
+        row_num=2
+        )
+class spacer(widgets.Box):
+    def __init__(self, space = 1):
+        label = " " * space
+        super().__init__(
+            child = [widgets.Label(label = label)]
+        )
 
 class mediaPlayer(widgets.Overlay):
     service = mpris
@@ -260,8 +302,8 @@ class controlCenter(widgets.Window):
         self.is_visible = True
         self.child = widgets.EventBox(
             child=[mediaPlayer(),
-                   networkBlock(),
-                   widgets.CenterBox(css_classes = ["controlCenterBlock"], start_widget= sliders(), end_widget = powermenu())],
+                   buttonGrid(),
+                   topBar()],
             vertical=True,
             homogeneous=False,
             spacing=10,
