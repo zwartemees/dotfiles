@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "mees";
@@ -8,20 +8,24 @@
     pkgs.neovim
     pkgs.git
     pkgs.gh
+    pkgs.fish
+
 # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
   ];
 
   home.file = {
     ".gitconfig".source = git/gitconfig;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".config/fish".source = ./fish;
   };
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  home.activation.setFishShell = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  echo "Running shell script to set fish as default shell..."
+  bash ${./scripts/setShell.sh}
+'';
+
+
   programs.home-manager.enable = true;
 }
