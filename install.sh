@@ -19,6 +19,7 @@ echo "installing home-manager"
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 nix-shell '<home-manager>' -A install
+. /etc/profile.d/nix.sh
 
 echo "cloning and installing dotfiles" 
 rm -rf ~/dotfiles
