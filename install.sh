@@ -21,6 +21,7 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 
 echo "cloning and installing dotfiles" 
-git clone https://github.com/zwartemees/dotfiles.git
-ln -sf ~/dotfiles/home-manager/home.nix ~/.config/home.nix
+git clone https://github.com/zwartemees/dotfiles.git ~/dotfiles
+mkdir -p ~/.config/home-manager
+ln -sf ~/dotfiles/home.nix ~/.config/home-manager/home.nix
 home-manager switch
