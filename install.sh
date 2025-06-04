@@ -13,6 +13,7 @@ rm -rf xz
 
 echo "installing nix..."
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+. /etc/profile.d/nix.sh
 
 echo "installing home-manager" 
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
