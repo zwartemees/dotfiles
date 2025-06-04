@@ -15,11 +15,22 @@ echo "installing nix..."
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 . /etc/profile.d/nix.sh
 
+if [ "$(ps -p 1 -o comm=)" = "init" ]; then
+    echo "System is not using init not systemd you might experience problems with nix"
+    echo "trying to install daemon"
+
+    mv ~/dotfiles/daemon/nix-daemon /etc/init.d/nix-daemon
+    sudo chmod +x /etc/init.d/nix-daemon
+    sudo update-rc.d nix-daemon defaults
+    sudo service nix-daemon start
+fi
+
+
+
 echo "installing home-manager" 
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 nix-shell '<home-manager>' -A install
-. /etc/profile.d/nix.sh
 
 echo "cloning and installing dotfiles" 
 rm -rf ~/dotfiles
