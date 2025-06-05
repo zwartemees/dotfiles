@@ -5,7 +5,7 @@ sudo apt install git curl
 echo "installing xz" 
 git clone https://github.com/tukaani-project/xz
 cd xz
-Cmake .
+cmake .
 make
 sudo mv xz /usr/bin/
 cd ..
