@@ -25,17 +25,7 @@ if [[ "$(ps -p 1 -o comm=)" == *"init"* ]]; then
     sudo service nix-daemon start
 fi
 
-
-
-echo "installing home-manager" 
-. /etc/profile.d/nix.sh
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
-
 echo "cloning and installing dotfiles" 
 rm -rf ~/dotfiles
 git clone https://github.com/zwartemees/dotfiles.git ~/dotfiles
 mkdir -p ~/.config/home-manager
-ln -sf ~/dotfiles/home.nix ~/.config/home-manager/home.nix
-home-manager switch
