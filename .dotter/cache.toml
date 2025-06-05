@@ -1,0 +1,5 @@
+[symlinks]
+"fish/config.fish" = "/home/mees/.config/fish/config.fish"
+"fish/fish_variables" = "/home/mees/.config/fish/fish_variables"
+
+[templates]

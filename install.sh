@@ -13,7 +13,6 @@ rm -rf xz
 
 echo "installing nix..."
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
-. /etc/profile.d/nix.sh
 
 if [[ "$(ps -p 1 -o comm=)" == *"init"* ]]; then
     echo "System is not using init not systemd you might experience problems with nix"
@@ -28,4 +27,7 @@ fi
 echo "cloning and installing dotfiles" 
 rm -rf ~/dotfiles
 git clone https://github.com/zwartemees/dotfiles.git ~/dotfiles
-mkdir -p ~/.config/home-manager
+cd dotfiles
+. /etc/profile.d/nix.sh
+nix-env -irf packages.nix
+dotter deploy
