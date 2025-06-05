@@ -31,3 +31,4 @@ cd dotfiles
 . /etc/profile.d/nix.sh
 nix-env -irf packages.nix
 dotter deploy
+./scripts/setShell.sh
