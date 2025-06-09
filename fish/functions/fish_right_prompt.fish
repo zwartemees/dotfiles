@@ -138,7 +138,7 @@ function fish_right_prompt
                  set status_line "$status_line" (set_color cyan)''
         end
         if test $status_added -ne 0
-                set status_line "$status_line" (set_color green)''
+                set status_line "$status_line" (set_color green)'󰐕'
         end
         if test $status_deleted -ne 0
                  set status_line "$status_line" (set_color red)''
