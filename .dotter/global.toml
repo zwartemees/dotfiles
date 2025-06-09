@@ -5,7 +5,6 @@ depends = []
 
 [default.files]
 fish = "~/.config/fish"
-"install.sh" = ""
 "packages.nix" = ""
 scripts = ""
 

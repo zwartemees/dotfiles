@@ -2,18 +2,16 @@ source ~/.config/fish/functions/prompt_segment.fish
 function fish_right_prompt
         set -l cmd_status $status
         if test $cmd_status -ne 0
-                echo -n (set_color red)"✘ $cmd_status"
+		render_segment red black "$cmd_status"
         end
     
         if not command -sq git
-                set_color normal
                 return
         end
     
         # Get the git directory for later use.
         # Return if not inside a Git repository work tree.
         if not set -l git_dir (command git rev-parse --git-dir 2>/dev/null)
-                set_color normal
                 return
         end
     
@@ -23,7 +21,6 @@ function fish_right_prompt
         if set -l action (fish_print_git_action "$git_dir")
                 set commit (command git rev-parse HEAD 2> /dev/null | string sub -l 7)
         end
-    
         # Get either the branch name or a branch descriptor.
         set -l branch_detached 0
         if not set -l branch (command git symbolic-ref --short HEAD 2>/dev/null)
@@ -87,8 +84,6 @@ function fish_right_prompt
         #  ?  |    |    |    | m  | r  | m  | u  |    |    | t  |
         #  _  |    |    | d  | m  | r  | m  | u  |    |    |    |
         set -l porcelain_status (command git status --porcelain 2>/dev/null | string sub -l2)
-    
-        set -l status_added 0
         if string match -qr '[ACDMT][ MT]|[ACMT]D' $porcelain_status
                 set status_added 1
         end
@@ -117,46 +112,48 @@ function fish_right_prompt
     
         if test -n "$branch"
                 if test $branch_detached -ne 0
-                        set_color brmagenta
+                        render_segment purple black "$branch"
                 else
-                        set_color green
+                	render_segment green black "$branch"
                 end
-                echo -n " $branch"
         end
         if test -n "$commit"
-                echo -n ' '(set_color yellow)"$commit"
+                echo -n render_segment yellow black "$commit"
         end
         if test -n "$action"
                 set_color normal
-                echo -n (set_color white)':'(set_color -o brred)"$action"
+                echo -n render_segment red black "$action"
         end
-        if test $status_ahead -ne 0
-                echo -n ' '(set_color brmagenta)'⬆'
+	
+	set -l status_line ""
+        
+	if test $status_ahead -ne 0
+                 set status_line "$status_line" (set_color brmagenta)''
         end
         if test $status_behind -ne 0
-                echo -n ' '(set_color brmagenta)'⬇'
+                 set status_line "$status_line" (set_color brmagenta)''
         end
         if test $status_stashed -ne 0
-                echo -n ' '(set_color cyan)'✭'
+                 set status_line "$status_line" (set_color cyan)''
         end
         if test $status_added -ne 0
-                echo -n ' '(set_color green)'✚'
+                set status_line "$status_line" (set_color green)''
         end
         if test $status_deleted -ne 0
-                echo -n ' '(set_color red)'✖'
+                 set status_line "$status_line" (set_color red)''
         end
         if test $status_modified -ne 0
-                echo -n ' '(set_color blue)'✱'
+                set status_line "$status_line" (set_color blue)''
         end
         if test $status_renamed -ne 0
-                echo -n ' '(set_color magenta)'➜'
+                 set status_line "$status_line" (set_color magenta)''
         end
         if test $status_unmerged -ne 0
-                echo -n ' '(set_color yellow)'═'
+                 set status_line "$status_line" (set_color yellow)''
         end
         if test $status_untracked -ne 0
-                echo -n ' '(set_color white)'◼'
+                 set status_line "$status_line" (set_color white)''
         end
-    
-        set_color normal
+
+   render_segment brblack brblack (string sub -s 2 -- "$status_line") 
 end
