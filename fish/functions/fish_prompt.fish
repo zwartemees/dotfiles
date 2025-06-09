@@ -1,7 +1,6 @@
 source ~/.config/fish/functions/prompt_segment.fish
 
 function fish_prompt
-	echo " "
         if test -n "$SSH_TTY"
                 render_segment blue black (whoami)
 		render_segment blue black (prompt_hostname)

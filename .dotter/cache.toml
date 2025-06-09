@@ -1,6 +1,7 @@
 [symlinks]
 "fish/config.fish" = "/home/mees/.config/fish/config.fish"
 "fish/fish_variables" = "/home/mees/.config/fish/fish_variables"
+"fish/functions/fish_mode_prompt.fish" = "/home/mees/.config/fish/functions/fish_mode_prompt.fish"
 "fish/functions/fish_prompt.fish" = "/home/mees/.config/fish/functions/fish_prompt.fish"
 "fish/functions/fish_right_prompt.fish" = "/home/mees/.config/fish/functions/fish_right_prompt.fish"
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
