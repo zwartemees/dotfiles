@@ -84,7 +84,8 @@ function fish_right_prompt
         #  ?  |    |    |    | m  | r  | m  | u  |    |    | t  |
         #  _  |    |    | d  | m  | r  | m  | u  |    |    |    |
         set -l porcelain_status (command git status --porcelain 2>/dev/null | string sub -l2)
-        if string match -qr '[ACDMT][ MT]|[ACMT]D' $porcelain_status
+        set -l status_added 0
+	if string match -qr '[ACDMT][ MT]|[ACMT]D' $porcelain_status
                 set status_added 1
         end
         set -l status_deleted 0
