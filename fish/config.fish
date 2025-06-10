@@ -3,9 +3,8 @@ if status is-interactive
 end
 
 function fish_greeting
-    echo Welcome (whoami) you have loggedin at $hostname 
-    echo Today it\'s (date "+%A, %B %eXX"  | sed -e 's/11XX/11th/' -e 's/12XX/12th/' -e 's/13XX/13th/' -e 's/1XX/1st/' -e ' s/2XX/2nd/' -e 's/3XX/3rd/' -e 's/XX/th/')
-    echo The current time is (get_time)
+    echo Welcome (whoami) you have logged in at $hostname 
+    echo Today it\'s (date "+%A, %B %eXX"  | sed -e 's/11XX/11th/' -e 's/12XX/12th/' -e 's/13XX/13th/' -e 's/1XX/1st/' -e ' s/2XX/2nd/' -e 's/3XX/3rd/' -e 's/XX/th/'). It\'s curently (get_time)
 end
 
 function get_time
