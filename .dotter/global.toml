@@ -7,6 +7,7 @@ depends = []
 fish = "~/.config/fish"
 "packages.nix" = ""
 scripts = ""
+helix = "~/.config/helix"
 
 [default.variables]
 

@@ -5,5 +5,6 @@
 "fish/functions/fish_prompt.fish" = "/home/mees/.config/fish/functions/fish_prompt.fish"
 "fish/functions/fish_right_prompt.fish" = "/home/mees/.config/fish/functions/fish_right_prompt.fish"
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
+"helix/config.toml" = "/home/mees/.config/helix/config.toml"
 
 [templates]

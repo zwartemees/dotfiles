@@ -4,5 +4,6 @@ with import <nixpkgs> {};
   dotter
   gh
   fish
+  helix
   # packages here
 ]
