@@ -72,3 +72,5 @@ function get_hour_name
             echo twelve
     end
 end
+
+zoxide init fish | source

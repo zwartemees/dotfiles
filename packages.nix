@@ -1,6 +1,6 @@
 with import <nixpkgs> {};
 [
-  neovim
+  zoxide
   dotter
   gh
   fish
