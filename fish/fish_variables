@@ -29,6 +29,6 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/mees/\x2enix\x2dprofile/bin
-SETUVAR fish_prompt_pwd_full_dirs:3
 SETUVAR fish_prompt_pwd_dir_length:3
+SETUVAR fish_prompt_pwd_full_dirs:3
+SETUVAR fish_user_paths:/nix/var/nix/profiles/default/bin\x1e/home/mees/\x2enix\x2dprofile/bin
