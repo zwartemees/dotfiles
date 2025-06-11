@@ -6,5 +6,6 @@
 "fish/functions/fish_right_prompt.fish" = "/home/mees/.config/fish/functions/fish_right_prompt.fish"
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
 "helix/config.toml" = "/home/mees/.config/helix/config.toml"
+"helix/lsp.nix" = "/home/mees/.config/helix/lsp.nix"
 
 [templates]
