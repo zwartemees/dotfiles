@@ -5,5 +5,6 @@ with import <nixpkgs> {};
   gh
   fish
   helix
+  nerd-fonts.fira-code
   # packages here
 ]

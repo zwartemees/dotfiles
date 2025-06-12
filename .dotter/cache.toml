@@ -5,6 +5,7 @@
 "fish/functions/fish_prompt.fish" = "/home/mees/.config/fish/functions/fish_prompt.fish"
 "fish/functions/fish_right_prompt.fish" = "/home/mees/.config/fish/functions/fish_right_prompt.fish"
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
+"fontconfig/conf.d/nix-fonts.conf" = "/home/mees/.config/fontconfig/conf.d/nix-fonts.conf"
 "helix/config.toml" = "/home/mees/.config/helix/config.toml"
 "helix/lsp.nix" = "/home/mees/.config/helix/lsp.nix"
 
