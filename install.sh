@@ -30,5 +30,5 @@ git clone https://github.com/zwartemees/dotfiles.git ~/dotfiles
 cd dotfiles
 . /etc/profile.d/nix.sh
 nix-env -irf packages.nix
-dotter deploy
+dotter deploy -f
 ./scripts/setShell.sh
