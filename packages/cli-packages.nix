@@ -5,6 +5,7 @@ with import <nixpkgs> {};
   gh
   fish
   helix
+  neovim
   nerd-fonts.fira-code
   # packages here
 ]

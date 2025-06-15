@@ -29,6 +29,8 @@ rm -rf ~/dotfiles
 git clone https://github.com/zwartemees/dotfiles.git ~/dotfiles
 cd dotfiles
 . /etc/profile.d/nix.sh
-nix-env -irf packages.nix
+nix-env -if ./packages/cli-packages.nix
+nix-env -if ./packages/lsp.nix
 dotter deploy -f
+bash
 ./scripts/setShell.sh

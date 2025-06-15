@@ -1,4 +1,5 @@
-alias lsp-install 'nix-env -if ~/.config/helix/lsp.nix'
+alias lsp-install 'nix-env -if ~/.config/packages/lsp.nix'
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end

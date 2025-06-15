@@ -7,6 +7,7 @@
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
 "fontconfig/conf.d/nix-fonts.conf" = "/home/mees/.config/fontconfig/conf.d/nix-fonts.conf"
 "helix/config.toml" = "/home/mees/.config/helix/config.toml"
-"helix/lsp.nix" = "/home/mees/.config/helix/lsp.nix"
+"packages/cli-packages.nix" = "/home/mees/.config/packages/cli-packages.nix"
+"packages/lsp.nix" = "/home/mees/.config/packages/lsp.nix"
 
 [templates]
