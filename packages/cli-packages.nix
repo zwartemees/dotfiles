@@ -1,11 +1,15 @@
 with import <nixpkgs> {};
 [
-  zoxide
-  dotter
-  gh
-  fish
-  helix
-  neovim
-  nerd-fonts.fira-code
+    cmake
+    gnumake
+    gcc
+    zoxide
+    dotter
+    gh
+    fish
+    ripgrep
+    fd
+    neovim
+    nerd-fonts.fira-code
   # packages here
 ]

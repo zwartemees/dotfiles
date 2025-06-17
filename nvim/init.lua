@@ -1,0 +1,11 @@
+require("config.lazy")
+require("config.settings")
+require("config.lsp-diagnostics")
+require("config.statusline")
+--require("config.autocomplete")
+
+require("plugins.fuzzy")
+require('telescope').load_extension('fzf')
+require("plugins.statusline")
+require("plugins.lsp-diagnostics")
+require("plugins.autocomplete")

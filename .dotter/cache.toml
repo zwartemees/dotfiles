@@ -6,6 +6,7 @@
 "fish/functions/fish_right_prompt.fish" = "/home/mees/.config/fish/functions/fish_right_prompt.fish"
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
 "fontconfig/conf.d/nix-fonts.conf" = "/home/mees/.config/fontconfig/conf.d/nix-fonts.conf"
+"git/gitconfig" = "/home/mees/.gitconfig"
 "helix/config.toml" = "/home/mees/.config/helix/config.toml"
 "packages/cli-packages.nix" = "/home/mees/.config/packages/cli-packages.nix"
 "packages/lsp.nix" = "/home/mees/.config/packages/lsp.nix"

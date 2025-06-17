@@ -7,9 +7,9 @@ depends = []
 fish = "~/.config/fish"
 packages = "~/.config/packages"
 scripts = ""
-helix = "~/.config/helix"
+nvim = "~/.config/nvim"
 fontconfig = "~/.config/fontconfig"
-
+"git/gitconfig" = "~/.gitconfig" 
 [default.variables]
 
 [settings]
