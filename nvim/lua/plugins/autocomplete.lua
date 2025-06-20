@@ -19,7 +19,6 @@ return {
         menu = {
             border = "rounded",
             scrollbar = false,
-            scrollof = 2,
             draw = {
                 treesitter = {"lsp"},
                 cursorline_priority = 10001,
