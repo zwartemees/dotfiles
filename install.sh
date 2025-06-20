@@ -29,8 +29,19 @@ rm -rf ~/dotfiles
 git clone https://github.com/zwartemees/dotfiles.git ~/dotfiles
 cd dotfiles
 . /etc/profile.d/nix.sh
+# installing dependancies
+sudo chmod -R 777 /nix/var/nix/profiles
+nix-env --switch-profile /nix/var/nix/profiles/default/
+# installing global dependancies
+
+nix-env --switch-profile $HOME/.local/state/nix/profiles/profile
+#installing user dependancies
 nix-env -if ./packages/cli-packages.nix
 nix-env -if ./packages/lsp.nix
+
+#deploying dotfiles
 dotter deploy -f
+
+#setting up fish
 bash
 ./scripts/setShell.sh
