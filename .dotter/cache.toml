@@ -6,6 +6,7 @@
 "fish/functions/fish_right_prompt.fish" = "/home/mees/.config/fish/functions/fish_right_prompt.fish"
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
 "fontconfig/conf.d/nix-fonts.conf" = "/home/mees/.config/fontconfig/conf.d/nix-fonts.conf"
+"fontconfig/fonts.conf" = "/home/mees/.config/fontconfig/fonts.conf"
 "git/gitconfig" = "/home/mees/.gitconfig"
 "nvim/init.lua" = "/home/mees/.config/nvim/init.lua"
 "nvim/lazy-lock.json" = "/home/mees/.config/nvim/lazy-lock.json"
@@ -21,5 +22,6 @@
 "nvim/lua/plugins/statusline.lua" = "/home/mees/.config/nvim/lua/plugins/statusline.lua"
 "packages/cli-packages.nix" = "/home/mees/.config/packages/cli-packages.nix"
 "packages/lsp.nix" = "/home/mees/.config/packages/lsp.nix"
+"packages/ui-packages.nix" = "/home/mees/.config/packages/ui-packages.nix"
 
 [templates]
