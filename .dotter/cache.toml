@@ -1,13 +1,14 @@
 [symlinks]
+"configuration/packages.nix" = "/etc/nixos/configuration/packages.nix"
+"configuration.nix" = "/etc/nixos/configuration.nix"
 "fish/config.fish" = "/home/mees/.config/fish/config.fish"
 "fish/fish_variables" = "/home/mees/.config/fish/fish_variables"
 "fish/functions/fish_mode_prompt.fish" = "/home/mees/.config/fish/functions/fish_mode_prompt.fish"
 "fish/functions/fish_prompt.fish" = "/home/mees/.config/fish/functions/fish_prompt.fish"
 "fish/functions/fish_right_prompt.fish" = "/home/mees/.config/fish/functions/fish_right_prompt.fish"
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
-"fontconfig/conf.d/nix-fonts.conf" = "/home/mees/.config/fontconfig/conf.d/nix-fonts.conf"
-"fontconfig/fonts.conf" = "/home/mees/.config/fontconfig/fonts.conf"
 "git/gitconfig" = "/home/mees/.gitconfig"
+"niri/config.kdl" = "/home/mees/.config/niri/config.kdl"
 "nvim/init.lua" = "/home/mees/.config/nvim/init.lua"
 "nvim/lazy-lock.json" = "/home/mees/.config/nvim/lazy-lock.json"
 "nvim/lua/config/autocomplete.lua" = "/home/mees/.config/nvim/lua/config/autocomplete.lua"
@@ -20,8 +21,5 @@
 "nvim/lua/plugins/fuzzy.lua" = "/home/mees/.config/nvim/lua/plugins/fuzzy.lua"
 "nvim/lua/plugins/lsp-diagnostics.lua" = "/home/mees/.config/nvim/lua/plugins/lsp-diagnostics.lua"
 "nvim/lua/plugins/statusline.lua" = "/home/mees/.config/nvim/lua/plugins/statusline.lua"
-"packages/cli-packages.nix" = "/home/mees/.config/packages/cli-packages.nix"
-"packages/lsp.nix" = "/home/mees/.config/packages/lsp.nix"
-"packages/ui-packages.nix" = "/home/mees/.config/packages/ui-packages.nix"
 
 [templates]

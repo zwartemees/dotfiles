@@ -4,12 +4,13 @@
 depends = []
 
 [default.files]
+niri = "~/.config/niri"
 fish = "~/.config/fish"
-packages = "~/.config/packages"
-scripts = ""
 nvim = "~/.config/nvim"
-fontconfig = "~/.config/fontconfig"
 "git/gitconfig" = "~/.gitconfig" 
+"configuration.nix" = "/etc/nixos/configuration.nix"
+"configuration" = "/etc/nixos/configuration"
+
 [default.variables]
 
 [settings]
