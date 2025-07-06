@@ -2,26 +2,26 @@
 
 {
 	environment.systemPackages = with pkgs; [
-	
-	ghostty
+
+    ghostty
 	firefox
 	fuzzel
-
+    xwayland-satellite
 	#cli tools
-	zoxide
-    	dotter
+    gnumake
+    zoxide
+    dotter
 	git
 	gh
-    	fish
-    	ripgrep
-    	fd
-    	neovim
-
-	#lsps
+    fish
+    ripgrep
+    fd
+    neovim
+	unzip
+    #lsps
 	lua-language-server
   	fish-lsp
   	nixd
-  	
 	nerd-fonts.fira-code
 	];
 }

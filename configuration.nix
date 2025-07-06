@@ -1,17 +1,19 @@
 { config, pkgs, ... }:
-
+let
+    custom-sddm-theme = import /etc/nixos/configuration/sddm-theme.nix { inherit pkgs;};
+in
 {
+
   imports =
     [ 
     	/etc/nixos/hardware-configuration.nix
 	./configuration/packages.nix
     ];
-
   # Bootloader.
 boot = {
         consoleLogLevel = 0;
         initrd.verbose = false;
-	plymouth.theme = "spinner";
+	    plymouth.theme = "spinner";
         plymouth.enable = true;
         kernelParams = [ "quiet" "loglevel=3" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail"];
      loader = {
@@ -20,8 +22,10 @@ boot = {
        efi.canTouchEfiVariables = true;
        };
      };
-  services.displayManager.sddm = {
-  	enable = true;
+services.displayManager.sddm = {
+    theme = "custom-sddm-theme";
+    package = pkgs.kdePackages.sddm;
+ 	enable = true;
 	wayland.enable = true;
   };
 
@@ -41,7 +45,7 @@ boot = {
   time.timeZone = "Europe/Brussels";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -63,12 +67,21 @@ boot = {
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-	niri
-	kdePackages.sddm
-	
-	fish
+environment.systemPackages = with pkgs; [
+    
+   custom-sddm-theme
+   niri
+#            (catppuccin-sddm.override {
+ #           flavor = "mocha";
+  #          font  = "Noto Sans";
+   #         fontSize = "9";
+#            background = "${/home/mees/Downloads/wallpaper.png}";
+    #        loginBackground = false;
+     #     })
+#	kdePackages.sddm
+    fish
 ];
+
 programs.fish.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

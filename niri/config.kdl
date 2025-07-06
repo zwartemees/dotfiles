@@ -57,13 +57,15 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="0%"
 }
-
+hotkey-overlay {
+    skip-at-startup
+}
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
@@ -307,6 +309,10 @@ window-rule {
     //title="^Picture-in-Picture$"
     //open-floating true
     default-column-width {proportion 1.0;}
+}
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
 }
 
 // Example: block out two password managers from screen capture.

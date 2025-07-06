@@ -1,5 +1,6 @@
 [symlinks]
 "configuration/packages.nix" = "/etc/nixos/configuration/packages.nix"
+"configuration/sddm-theme.nix" = "/etc/nixos/configuration/sddm-theme.nix"
 "configuration.nix" = "/etc/nixos/configuration.nix"
 "fish/config.fish" = "/home/mees/.config/fish/config.fish"
 "fish/fish_variables" = "/home/mees/.config/fish/fish_variables"
@@ -21,5 +22,6 @@
 "nvim/lua/plugins/fuzzy.lua" = "/home/mees/.config/nvim/lua/plugins/fuzzy.lua"
 "nvim/lua/plugins/lsp-diagnostics.lua" = "/home/mees/.config/nvim/lua/plugins/lsp-diagnostics.lua"
 "nvim/lua/plugins/statusline.lua" = "/home/mees/.config/nvim/lua/plugins/statusline.lua"
+"sddm/sddm.conf" = "/etc/sddm.conf"
 
 [templates]

@@ -10,7 +10,7 @@ nvim = "~/.config/nvim"
 "git/gitconfig" = "~/.gitconfig" 
 "configuration.nix" = "/etc/nixos/configuration.nix"
 "configuration" = "/etc/nixos/configuration"
-
+"sddm/sddm.conf" = "/etc/sddm.conf"
 [default.variables]
 
 [settings]
