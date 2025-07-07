@@ -5,4 +5,4 @@ sudo dotter deploy -f
 dotter deploy -f
 sudo nixos-rebuild switch
 ```
-
+the sddm theme is a modified catppuccin theme
