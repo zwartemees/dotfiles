@@ -24,7 +24,12 @@ boot = {
      };
 services.displayManager.sddm = {
     theme = "custom-sddm-theme";
+    
     package = pkgs.kdePackages.sddm;
+    extraPackages = with pkgs; [
+        custom-sddm-theme
+ #       kdePackages.qt5compat
+    ];
  	enable = true;
 	wayland.enable = true;
   };
@@ -68,8 +73,7 @@ services.displayManager.sddm = {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 environment.systemPackages = with pkgs; [
-    
-   custom-sddm-theme
+        custom-sddm-theme
    niri
 #            (catppuccin-sddm.override {
  #           flavor = "mocha";

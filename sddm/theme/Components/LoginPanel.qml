@@ -9,7 +9,6 @@ Item {
   property var session: sessionPanel.session
   property var inputHeight: Screen.height * 0.032
   property var inputWidth: Screen.width * 0.16
-    
   Rectangle {
     id: loginBackground
     anchors {
