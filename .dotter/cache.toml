@@ -8,8 +8,12 @@
 "fish/functions/fish_prompt.fish" = "/home/mees/.config/fish/functions/fish_prompt.fish"
 "fish/functions/fish_right_prompt.fish" = "/home/mees/.config/fish/functions/fish_right_prompt.fish"
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
+"fuzzel/fuzzel.ini" = "/home/mees/.config/fuzzel/fuzzel.ini"
 "git/gitconfig" = "/home/mees/.gitconfig"
+"mako/config" = "/home/mees/.config/mako/config"
 "niri/config.kdl" = "/home/mees/.config/niri/config.kdl"
+"niri/cut" = "/home/mees/.config/niri/cut"
+"niri/scripts/close.sh" = "/home/mees/.config/niri/scripts/close.sh"
 "nvim/init.lua" = "/home/mees/.config/nvim/init.lua"
 "nvim/lazy-lock.json" = "/home/mees/.config/nvim/lazy-lock.json"
 "nvim/lua/config/autocomplete.lua" = "/home/mees/.config/nvim/lua/config/autocomplete.lua"
@@ -22,6 +26,5 @@
 "nvim/lua/plugins/fuzzy.lua" = "/home/mees/.config/nvim/lua/plugins/fuzzy.lua"
 "nvim/lua/plugins/lsp-diagnostics.lua" = "/home/mees/.config/nvim/lua/plugins/lsp-diagnostics.lua"
 "nvim/lua/plugins/statusline.lua" = "/home/mees/.config/nvim/lua/plugins/statusline.lua"
-"sddm/sddm.conf" = "/etc/sddm.conf"
 
 [templates]

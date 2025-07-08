@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 let
+    unstable = import (builtins.fetchTarball {
+        url = "https://github.com/NixOs/nixpkgs/archive/nixos-unstable.tar.gz";
+    }) {
+        config = {allowUnfree = true;}; 
+    };
     custom-sddm-theme = import /etc/nixos/configuration/sddm-theme.nix { inherit pkgs;};
 in
 {
@@ -28,7 +33,6 @@ services.displayManager.sddm = {
     package = pkgs.kdePackages.sddm;
     extraPackages = with pkgs; [
         custom-sddm-theme
- #       kdePackages.qt5compat
     ];
  	enable = true;
 	wayland.enable = true;
@@ -46,7 +50,8 @@ services.displayManager.sddm = {
 
   # Enable networking
   networking.networkmanager.enable = true;
- # Set your time zone.
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # # Set your time zone.
   time.timeZone = "Europe/Brussels";
 
   # Select internationalisation properties.
@@ -74,16 +79,13 @@ services.displayManager.sddm = {
   # $ nix search wget
 environment.systemPackages = with pkgs; [
         custom-sddm-theme
-   niri
-#            (catppuccin-sddm.override {
- #           flavor = "mocha";
-  #          font  = "Noto Sans";
-   #         fontSize = "9";
-#            background = "${/home/mees/Downloads/wallpaper.png}";
-    #        loginBackground = false;
-     #     })
-#	kdePackages.sddm
-    fish
+        niri
+        fish
+        networkmanager_dmenu
+        networkmanagerapplet
+        unstable.bzmenu
+        mako
+#        bluez
 ];
 
 programs.fish.enable = true;

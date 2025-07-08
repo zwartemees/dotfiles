@@ -7,10 +7,11 @@ depends = []
 niri = "~/.config/niri"
 fish = "~/.config/fish"
 nvim = "~/.config/nvim"
+fuzzel = "~/.config/fuzzel"
+mako = "~/.config/mako"
 "git/gitconfig" = "~/.gitconfig" 
 "configuration.nix" = "/etc/nixos/configuration.nix"
 "configuration" = "/etc/nixos/configuration"
-"sddm/sddm.conf" = "/etc/sddm.conf"
 [default.variables]
 
 [settings]
