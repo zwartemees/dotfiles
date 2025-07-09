@@ -5,16 +5,18 @@ let
     }) {
         config = {allowUnfree = true;}; 
     };
-    custom-sddm-theme = import /etc/nixos/configuration/sddm-theme.nix { inherit pkgs;};
+        custom-sddm-theme = import /etc/nixos/configuration/sddm-theme.nix { inherit pkgs;};
 in
 {
 
   imports =
-    [ 
-    	/etc/nixos/hardware-configuration.nix
-	./configuration/packages.nix
+    [
+       /etc/nixos/hardware-configuration.nix
+	    ./configuration/packages.nix
+#       ./configuration/laptop.nix
     ];
-  # Bootloader.
+
+# Bootloader.
 boot = {
         consoleLogLevel = 0;
         initrd.verbose = false;
@@ -39,7 +41,7 @@ services.displayManager.sddm = {
   };
 
   programs.niri.enable = true;
- 
+  services.hypridle.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -79,13 +81,14 @@ services.displayManager.sddm = {
   # $ nix search wget
 environment.systemPackages = with pkgs; [
         custom-sddm-theme
-        niri
-        fish
+        swww
+        libnotify
+       # fish
         networkmanager_dmenu
         networkmanagerapplet
         unstable.bzmenu
         mako
-#        bluez
+        hyprlock
 ];
 
 programs.fish.enable = true;

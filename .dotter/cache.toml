@@ -1,4 +1,5 @@
 [symlinks]
+"configuration/laptop.nix" = "/etc/nixos/configuration/laptop.nix"
 "configuration/packages.nix" = "/etc/nixos/configuration/packages.nix"
 "configuration/sddm-theme.nix" = "/etc/nixos/configuration/sddm-theme.nix"
 "configuration.nix" = "/etc/nixos/configuration.nix"
@@ -10,6 +11,8 @@
 "fish/functions/prompt_segment.fish" = "/home/mees/.config/fish/functions/prompt_segment.fish"
 "fuzzel/fuzzel.ini" = "/home/mees/.config/fuzzel/fuzzel.ini"
 "git/gitconfig" = "/home/mees/.gitconfig"
+"hypr/hypridle.conf" = "/home/mees/.config/hypr/hypridle.conf"
+"hypr/hyprlock.conf" = "/home/mees/.config/hypr/hyprlock.conf"
 "mako/config" = "/home/mees/.config/mako/config"
 "niri/config.kdl" = "/home/mees/.config/niri/config.kdl"
 "niri/cut" = "/home/mees/.config/niri/cut"

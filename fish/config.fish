@@ -21,7 +21,7 @@ function get_time
     else if test $min_number -lt 12.5
         echo -n ten past $hour_name
     else if test $min_number -lt 17.5
-        echo -n quarter past $hour_name
+        echo -n a quarter past $hour_name
     else if test $min_number -lt 22.5
         echo -n twenty past $hour_name
     else if test $min_number -lt 27.5
