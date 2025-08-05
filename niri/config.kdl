@@ -259,10 +259,14 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "swww-daemon"
+layer-rule {
+    match namespace="swww-daemon"
+    place-within-backdrop true
+}
 spawn-at-startup "swww img ./../theme/wallpaper.jpg"
 spawn-at-startup "hypridle"
-
-spawn-at-startup "waybar"
+spawn-at-startup "wpaperd"
+//spawn-at-startup "waybar"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -357,7 +361,6 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "ghostty"; }
     Ctrl+Alt+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel" "-I"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
