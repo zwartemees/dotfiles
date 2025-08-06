@@ -4,20 +4,21 @@
 depends = []
 
 [default.files]
-niri = "~/.config/niri"
-fish = "~/.config/fish"
-nvim = "~/.config/nvim"
-fuzzel = "~/.config/fuzzel"
-mako = "~/.config/mako"
-hypr = "~/.config/hypr"
-wpaperd = "~/.config/wpaperd"
-ghostty ="~/.config/ghostty"
+config = "~/.config"
+#niri = "~/.config/niri"
+#fish = "~/.config/fish"
+#nvim = "~/.config/nvim"
+#fuzzel = "~/.config/fuzzel"
+#mako = "~/.config/mako"
+#hypr = "~/.config/hypr"
+#wpaperd = "~/.config/wpaperd"
+#ghostty ="~/.config/ghostty"
 "theme/gtk/adw-gtk3-dark" ="~/.themes/adw-gtk3-dark"
 "theme/gtk/gtk3-settings.ini" = "~/.config/gtk-3.0/settings.ini"
 "theme/gtk/gtk4-dark.css" = "~/.config/gtk-4.0/gtk.css"
 "git/gitconfig" = "~/.gitconfig" 
-"configuration.nix" = "/etc/nixos/configuration.nix"
-"configuration" = "/etc/nixos/configuration"
+#"nix-old/configuration.nix" = "/etc/nixos/configuration.nix"
+#"nix-old/configuration" = "/etc/nixos/configuration"
 [default.variables]
 
 [settings]
