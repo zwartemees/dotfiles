@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 let
-#    unstable = import (builtins.fetchTarball {
-#        url = "https://github.com/NixOs/nixpkgs/archive/nixos-unstable.tar.gz";
-#  }) {
-#        config = {allowUnfree = true;}; 
-#    };
-       custom-sddm-theme = import ./../configuration/sddm-theme.nix { inherit pkgs;};
+    custom-sddm-theme = import ./../configuration/sddm-theme.nix { inherit pkgs;};
 in
 {
 
@@ -75,9 +70,9 @@ in
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
-     nixpkgs.config.allowUnfree = true;
-
-environment.systemPackages = with pkgs; [
+services.upower.enable=true;
+nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = with pkgs; [
         custom-sddm-theme
         swww
         wpaperd
@@ -87,7 +82,8 @@ environment.systemPackages = with pkgs; [
         unstable.bzmenu
         mako
         hyprlock
-        unstable.spotify
+        ignis
+        upower-notify
 ];
 programs.fish.enable = true;
 system.stateVersion = "25.05"; # Did you read the comment?
