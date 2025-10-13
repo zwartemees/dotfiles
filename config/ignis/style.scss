@@ -3,7 +3,26 @@
   margin: 0.4rem 0.2rem;  
   border-radius: 2rem;
 }
+.mediaPlayer{
+  padding : 2rem 1rem;
+  min-height: 10rem;
+  min-width: 5rem;
+}
 
+.mediaPlayer button{
+  margin: 1rem 1rem 0.2rem 0.5rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  min-width: 3rem;
+
+}
+.mediaPlayer slider{
+  padding:0rem;
+  border-radius:1rem;
+}
+.mediaPlayer trough{
+  min-height: 1rem;
+}
 .bar{
   min-height: 70px;
 }
@@ -31,4 +50,46 @@
 .active {
   min-height: 5rem;
 }
+.controlCenterBlock{
+  margin: 0rem 0rem;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+.controlCenterBlock a{
+  background-color: var(--border-color);
+  opacity: 1;
+}
 
+.controlCenterBlock button *{
+  opacity: 1;
+}
+
+.networkBlock{
+  border-radius: 1rem;
+  min-height: 2.5rem;
+}
+.sliders{
+  min-width: 10rem;
+}
+.networkBlock box > * {
+  margin: 0.5rem;
+}
+.slider trough{
+min-height: 7rem;
+min-width: 1rem;
+}
+.image{
+  border-radius: 1rem;
+}
+.sliders{
+  min-width: 2rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+.powermenu button{
+  border-radius : 1rem;
+  padding: 0.5rem;
+}
+.slider slider{
+opacity:0;
+}

@@ -1,11 +1,15 @@
 source ~/.config/fish/functions/prompt_segment.fish
 
 function fish_prompt
-        if test -n "$SSH_TTY"
-                render_segment blue black (whoami)
+    if test -n "$SSH_TTY"
+        render_segment blue black (whoami)
 		render_segment blue black (prompt_hostname)
-        end
+    end
 
+    if test -n "$VIRTUAL_ENV"
+        set parts (string split "/" "$VIRTUAL_ENV")
+        render_segment cyan black $parts[-1]
+    end
 	if test "$USER" != "mees"
 		render_segment blue black "$USER"
 	end

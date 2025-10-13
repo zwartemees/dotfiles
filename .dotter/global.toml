@@ -4,7 +4,7 @@
 depends = []
 
 [default.files]
-config = "~/.config"
+config = {target = "~/.config", type="symbolic"}
 #niri = "~/.config/niri"
 #fish = "~/.config/fish"
 #nvim = "~/.config/nvim"

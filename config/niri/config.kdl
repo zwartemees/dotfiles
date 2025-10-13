@@ -114,7 +114,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         //off
 
-        width 4
+        width 2
         active-color "#ffc87f"
         inactive-color "#505050"
 
@@ -186,11 +186,11 @@ layer-rule {
     match namespace="swww-daemon"
     place-within-backdrop true
 }
-spawn-at-startup "swww img ./../theme/wallpaper.jpg"
+spawn-at-startup "swww img ~/dotfiles/theme/wallpaper.jpg"
 spawn-at-startup "hypridle"
 spawn-at-startup "wpaperd"
 spawn-at-startup "ignis" "init"
-
+spawn-at-startup "xwayland-satellite"
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
@@ -244,6 +244,24 @@ window-rule {
     //title="^Picture-in-Picture$"
     //open-floating true
     default-column-width {proportion 1.0;}
+}
+window-rule{
+    match title=r#"^vpn-toggle$"#
+    open-floating true
+        default-column-width { proportion 0.3; }
+    default-window-height { fixed 250; }
+    default-floating-position x=300 y=200
+    focus-ring {
+        // off
+        on
+        width 4
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+        // active-gradient from="#80c8ff" to="#bbddff" angle=45
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        // urgent-gradient from="#800" to="#a33" angle=45
+    }
 }
 window-rule {
     geometry-corner-radius 12

@@ -9,7 +9,7 @@ in
         ./../hardware-configuration.nix
         ./../configuration/packages.nix
     ];
-
+  nix.settings.experimental-features = "nix-command flakes";
   programs.dconf.profiles.user.databases = [
     {
       settings."org/gnome/desktop/interface" = {
@@ -73,6 +73,9 @@ in
 services.upower.enable=true;
 nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+        zip
+        jetbrains.jdk
+        jetbrains.idea-ultimate
         custom-sddm-theme
         swww
         wpaperd
@@ -84,6 +87,10 @@ nixpkgs.config.allowUnfree = true;
         hyprlock
         ignis
         upower-notify
+        unstable.spotube
+        wireguard-tools
+        pyright
+        nautilus
 ];
 programs.fish.enable = true;
 system.stateVersion = "25.05"; # Did you read the comment?

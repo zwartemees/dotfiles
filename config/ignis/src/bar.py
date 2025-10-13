@@ -3,6 +3,7 @@ from ignis.services.niri import NiriService, NiriWorkspace
 from ignis.services.upower import UPowerDevice, UPowerService
 import datetime
 from src.calendarWindow import calendar
+from src.controlCenter import controlCenter
 
 upower = UPowerService.get_default()
 
@@ -42,7 +43,9 @@ class WorkspaceButton(widgets.Button):
             self.add_css_class("active")
 
 class MenuButton(widgets.Button):
-    def updateBatteryIcon(self, batteryIcon: widgets.Icon):
+    controlCenter = controlCenter()
+
+    def updateBattery(self, batteryIcon: widgets.Icon):
         names = ["battery-charging", "battery-full","battery75","battery50","battery25","battery-empty"]
         percent = upower.batteries[0].percent
         name = names[0]
@@ -63,7 +66,7 @@ class MenuButton(widgets.Button):
     
     def __init__(self):
         batteryIcon = widgets.Icon(pixel_size=25)
-        utils.Poll(10000, lambda x: self.updateBatteryIcon(batteryIcon))
+        utils.Poll(1000, lambda x: self.updateBattery(batteryIcon))
 
         super().__init__(
                 css_classes=["menuButton"],
@@ -79,11 +82,12 @@ class MenuButton(widgets.Button):
                         pixel_size=25,
                     )
                 ),
-                on_click=lambda self: print("test"),
+                on_click=lambda self: self.controlCenter.show(),
             )
 
 class TimeButton(widgets.Button):
     calendar = calendar()
+    
     def updateTime(self, label: widgets.label):
         text = datetime.datetime.now().strftime("%H\n%M")
         label.set_label(text)

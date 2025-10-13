@@ -3,7 +3,7 @@ require("config.settings")
 require("config.lsp-diagnostics")
 require("config.statusline")
 --require("config.autocomplete")
-
+require("plugins.md")
 require("plugins.fuzzy")
 require('telescope').load_extension('fzf')
 require("plugins.statusline")
