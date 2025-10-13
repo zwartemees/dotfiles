@@ -9,9 +9,9 @@ the sddm theme is a modified catppuccin theme
 Icons from iconoir
 
 ## To Do
--[] gui prompt for password when using wireguard
--[] unify theme
--[] add GPL license 
+- [ ] gui prompt for password when using wireguard
+- [ ] unify theme
+- [ ] add GPL license 
 ## Credit
 this code and artifects are (partialy) contained in this repo  
 iconoir for the icons in config/ignis/icons
