@@ -10,6 +10,7 @@ in
         ./../configuration/packages.nix
     ];
   nix.settings.experimental-features = "nix-command flakes";
+  nix.settings.sandbox = "relaxed";
   programs.dconf.profiles.user.databases = [
     {
       settings."org/gnome/desktop/interface" = {
@@ -91,6 +92,7 @@ nixpkgs.config.allowUnfree = true;
         wireguard-tools
         pyright
         nautilus
+        docker-language-server
 ];
 programs.fish.enable = true;
 system.stateVersion = "25.05"; # Did you read the comment?
