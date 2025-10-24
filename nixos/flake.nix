@@ -9,13 +9,18 @@
       url = "github:ignis-sh/ignis";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+        url = "github:abenz1267/walker";
+        inputs.elephant.follows = "elephant";
+    };
 };
 
-  outputs = { 
+  outputs = inputs @ { 
       self,
       nixpkgs,
       unstable, 
-      flake-utils,
       ignis,
       ... }:{
 
@@ -24,6 +29,7 @@
          system = "x86_64-linux";
          
       modules = [
+
         ./hosts/default.nix
         {
           nixpkgs.overlays = [
@@ -35,7 +41,9 @@
                 })
             ignis.overlays.default
             ];
-        }
+       }
+       inputs.walker.nixosModules.default
+ 
       ];
     };
 };

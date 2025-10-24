@@ -37,7 +37,7 @@ class powermenu(widgets.CenterBox):
                     ),
                     widgets.Button(
                         child=widgets.Icon(pixel_size=60, image = "lock-square"),
-                        on_click = lambda x: utils.Utils.exec_sh("ignis reload && hyprlock")
+                        on_click = lambda x: utils.Utils.exec_sh("hyprlock")
                     )
                 ])
             ])
@@ -243,8 +243,8 @@ class mediaPlayer(widgets.Overlay):
         
         mpris.connect("player_added", lambda y, x: self.draw())
         for players in mpris.players:
-            players.connect("notify::metadata", lambda y, x: self.draw())
             players.connect("notify::playback-status", lambda y, x: self.draw())
+            players.connect("notify::metadata", lambda y, x: self.draw())
 
 class controlCenter(widgets.Window):
     is_visible = False

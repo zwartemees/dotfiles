@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs,... }:
 let
-    custom-sddm-theme = import ./../configuration/sddm-theme.nix { inherit pkgs;};
+  custom-sddm-theme = import ./../configuration/sddm-theme.nix { inherit pkgs;};
 in
 {
 
@@ -46,11 +46,11 @@ in
  	    enable = true;
 	    wayland.enable = true;
   };
+  programs.walker.enable = true;
   programs.niri.enable = true;
   programs.xwayland.enable = true;
   services.hypridle.enable = true;
   services.flatpak.enable = true;
-
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
@@ -73,7 +73,8 @@ in
   };
 services.upower.enable=true;
 nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
+environment.systemPackages = with pkgs; [
+        matugen
         zip
         jetbrains.jdk
         jetbrains.idea-ultimate
@@ -81,14 +82,14 @@ nixpkgs.config.allowUnfree = true;
         swww
         wpaperd
         libnotify
-        networkmanager_dmenu
+        #unstable.nmgui
+        unstable.networkmanager_dmenu
         networkmanagerapplet
-        unstable.bzmenu
+        #unstable.bzmenu
         mako
         hyprlock
         ignis
         upower-notify
-        unstable.spotube
         wireguard-tools
         pyright
         nautilus
