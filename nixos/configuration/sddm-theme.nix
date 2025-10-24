@@ -1,5 +1,4 @@
-{ pkgs }:
-
+{ pkgs, ... }:
 pkgs.stdenv.mkDerivation {
   pname = "custom-sddm-theme";
   version = "1.0";

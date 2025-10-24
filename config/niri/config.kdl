@@ -248,22 +248,18 @@ window-rule {
     default-column-width {proportion 1.0;}
 }
 window-rule{
+    match title=r#"^Network Manager$"#
+    open-floating true
+        default-column-width { proportion 0.4; }
+    default-window-height { fixed 600; }
+    default-floating-position x=300 y=100
+}
+window-rule{
     match title=r#"^vpn-toggle$"#
     open-floating true
         default-column-width { proportion 0.3; }
     default-window-height { fixed 250; }
     default-floating-position x=300 y=200
-    focus-ring {
-        // off
-        on
-        width 4
-        active-color "#7fc8ff"
-        inactive-color "#505050"
-        urgent-color "#9b0000"
-        // active-gradient from="#80c8ff" to="#bbddff" angle=45
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-        // urgent-gradient from="#800" to="#a33" angle=45
-    }
 }
 window-rule {
     geometry-corner-radius 12

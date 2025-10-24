@@ -1,6 +1,6 @@
-{ inputs, config, pkgs,... }:
+{pkgs,config, pkgs-unstable,ignis,... }:
 let
-  custom-sddm-theme = import ./../configuration/sddm-theme.nix { inherit pkgs;};
+    custom-sddm-theme = import ./../configuration/sddm-theme.nix { inherit pkgs;};
 in
 {
 
@@ -73,27 +73,34 @@ in
   };
 services.upower.enable=true;
 nixpkgs.config.allowUnfree = true;
-environment.systemPackages = with pkgs; [
-        matugen
-        zip
-        jetbrains.jdk
-        jetbrains.idea-ultimate
+environment.systemPackages =[
+      (ignis.packages.${pkgs.system}.default.override {
+        enableAudioService = true;  # enable audio support
+        useDartSass = true;
+        enableNetworkService = true;      # installs networkmanager
+        enableRecorderService = false;    # skips gpu-screen-recorder
+        enableBluetoothService = true;    # installs gnome-bluetooth
+        useGrassSass = false;  # enable Dart Sass
+        })
+        pkgs.matugen
+        pkgs.zip
+        pkgs.jetbrains.jdk
+        pkgs.jetbrains.idea-ultimate
         custom-sddm-theme
-        swww
-        wpaperd
-        libnotify
-        #unstable.nmgui
-        unstable.networkmanager_dmenu
-        networkmanagerapplet
-        #unstable.bzmenu
-        mako
-        hyprlock
-        ignis
-        upower-notify
-        wireguard-tools
-        pyright
-        nautilus
-        docker-language-server
+        pkgs.swww
+        pkgs.wpaperd
+        pkgs.libnotify
+        pkgs-unstable.nmgui
+        pkgs.networkmanager_dmenu
+        pkgs.networkmanagerapplet
+        pkgs-unstable.bzmenu
+        pkgs.mako
+        pkgs.hyprlock
+        pkgs.upower-notify
+        pkgs.wireguard-tools
+        pkgs.pyright
+        pkgs.nautilus
+        pkgs.docker-language-server
 ];
 programs.fish.enable = true;
 system.stateVersion = "25.05"; # Did you read the comment?

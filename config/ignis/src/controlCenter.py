@@ -21,11 +21,11 @@ class powermenu(widgets.CenterBox):
                     child=[
                     widgets.Button(
                         child=widgets.Icon(pixel_size=60, image="system-shut" ),
-                        on_click = lambda x : utils.Utils.exec_sh("shutdown now")
+                        on_click = lambda x : utils.exec_sh("shutdown now")
                     ),
                     widgets.Button(
                         child=widgets.Icon(pixel_size=30, image="system-restart" ),
-                        on_click = lambda x : utils.Utils.exec_sh("shutdown -r now")
+                        on_click = lambda x : utils.exec_sh("shutdown -r now")
                     )
                 ]),
                 widgets.Box(
@@ -33,11 +33,11 @@ class powermenu(widgets.CenterBox):
                     child=[
                     widgets.Button(
                         child=widgets.Icon(pixel_size=30, image="log-out" ),
-                        on_click = lambda x : utils.Utils.exec_sh("niri msg action quit -s")
+                        on_click = lambda x : utils.exec_sh("niri msg action quit -s")
                     ),
                     widgets.Button(
                         child=widgets.Icon(pixel_size=60, image = "lock-square"),
-                        on_click = lambda x: utils.Utils.exec_sh("hyprlock")
+                        on_click = lambda x: utils.exec_sh("hyprlock")
                     )
                 ])
             ])
@@ -96,9 +96,9 @@ class sliders(widgets.Button):
 class vpn(widgets.Button):
     def toggel(self):
         if network.vpn.is_connected:
-            utils.Utils.exec_sh("ghostty --title=vpn-toggle -e \"wg-quick down /home/mees/.config/wireguard/mg0.conf\"")
+            utils.exec_sh("ghostty --title=vpn-toggle -e wg-quick down /home/mees/.config/wireguard/mg0.conf")
         else:
-            utils.Utils.exec_sh("ghostty --title=vpn-toggle -e \"wg-quick up /home/mees/.config/wireguard/mg0.conf\"")
+            utils.exec_sh("ghostty --title=vpn-toggle -e wg-quick up /home/mees/.config/wireguard/mg0.conf")
 
     def draw(self):
             if network.vpn.is_connected:
@@ -141,7 +141,7 @@ class bluetooth(widgets.Button):
     def __init__(self):
         super().__init__(
             css_classes = ["bluetooth","networkBlock"],
-            on_click = lambda self: utils.Utils.exec_sh("bzmenu -l fuzzel")
+            on_click = lambda self: utils.exec_sh("bzmenu -l walker")
         )
         for device in bluetoothService.devices:
             device.connect("notify::connected", lambda x,y: self.draw())
@@ -177,7 +177,7 @@ class wifi(widgets.Button):
     def __init__(self):
         super().__init__(
             css_classes = ["wifi","networkBlock"],
-            on_click = lambda self: self.event(lambda: utils.Utils.exec_sh("networkmanager_dmenu"))
+            on_click = lambda self: self.event(lambda: utils.exec_sh("nmgui"))
         )
         for device in self.service.wifi.devices:
             device.connect("notify::state", lambda x, y: self.draw())
