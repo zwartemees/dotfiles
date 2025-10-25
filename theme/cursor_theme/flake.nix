@@ -1,42 +1,49 @@
 {
-  description = "flake to build cursor theme";
+  description = "Python development environment";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05"; # or "nixpkgs#stable"
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-python.url = "github:cachix/nixpkgs-python";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, nixpkgs-python }: 
     let
-      system = "x86_64-linux"; # or "aarch64-darwin", etc.
+      system = "x86_64-linux";
+      pythonVersion = "3.14";
+
       pkgs = import nixpkgs { inherit system; };
-    in {
-      packages.${system}.cursor = pkgs.stdenv.mkDerivation{
-        pname = "bibata cursor builder";
-        version = "1.0.0";
+      myPython = nixpkgs-python.packages.${system}.${pythonVersion};
+    
+      accurse = pkgs.python3Packages.buildPythonPackage rec {
+    pname = "accurse";
+    version = "0.1.0";  # Replace with the desired version
 
-        src = ../cursor_theme;
+    src = pkgs.fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-ozkNbTrfdCfSk4EY1b4gJSKHlhcSlv2Kb1zTkDq6M0s=";
+    };
 
-        buildInputs = [
-          pkgs.nodejs
-          pkgs.python312
-          pkgs.python312Packages.clickgen
-          pkgs.cbmp
+    nativeBuildInputs = [ pkgs.python3Packages.hatchling ];
+    pyproject = true; 
+    propagatedBuildInputs = [ pkgs.python3Packages.lxml ];
+
+      };
+    in
+    {
+     devShells.${system}.default = pkgs.mkShell {
+        packages = [
+          myPython
+          pkgs.librsvg
+          pkgs.xcursorgen
         ];
-
-#        deps = import ./node-packages.nix { inherit pkgs; };
-
-        buildPhase = ''
-            ls
-            npx cbmp -d 'svg/original' -o 'bitmaps/Bibata-Custom' -bc '#00FE00' -oc '#000000'
-            ctgen build.toml -d 'bitmaps/Bibata-Custom' -n 'Bibata-Custom' -c 'Custom Bibata cursors'
-        '';
-
-        installPhase = ''
-          echo "Installing icon theme..."
-          mkdir -p $out/share/icons/pname
-          cp -r * $out/share/icons/pname
-        '';
+             shellHook = ''
+          python --version
+if [ ! -f ".venv/bin/activate" ]; then
+    python -m venv .venv
+fi
+source .venv/bin/activate
+pip install accurse
+'';
       };
     };
-}   
-
+}

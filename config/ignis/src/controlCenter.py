@@ -95,10 +95,7 @@ class sliders(widgets.Button):
 
 class vpn(widgets.Button):
     def toggel(self):
-        if network.vpn.is_connected:
-            utils.exec_sh("ghostty --title=vpn-toggle -e wg-quick down /home/mees/.config/wireguard/mg0.conf")
-        else:
-            utils.exec_sh("ghostty --title=vpn-toggle -e wg-quick up /home/mees/.config/wireguard/mg0.conf")
+            utils.exec_sh("~/.config/scripts/wireguard-walker.sh")
 
     def draw(self):
             if network.vpn.is_connected:

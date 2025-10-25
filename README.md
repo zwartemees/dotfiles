@@ -13,8 +13,9 @@ Icons from iconoir
 - [ ] unify theme
 - [ ] add GPL license 
 ## Credit
-this code and artifects are (partialy) contained in this repo  
+this repo contains the folowing (partial and or modified) projects 
 iconoir for the icons in config/ignis/icons
 sddm theme https://github.com/catppuccin/sddm
 gtk3 theme https://github.com/lassekongo83/adw-gtk3
 gtk4 theme is libadwaita
+cursor theme is https://github.com/ful1e5/Bibata_Cursor/tree/main
