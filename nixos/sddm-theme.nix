@@ -3,9 +3,11 @@ pkgs.stdenv.mkDerivation {
   pname = "custom-sddm-theme";
   version = "1.0";
 
-  src = ./../sddm/theme;
+  src = ./../theme/sddm/theme;
 
   installPhase = ''
+  pwd
+  ls
     rm -rf $out/share/sddm/themes/custom-sddm-theme
     mkdir -p $out/share/sddm/themes/custom-sddm-theme
     cp -r * $out/share/sddm/themes/custom-sddm-theme
