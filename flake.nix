@@ -31,7 +31,7 @@
         };
 
         modules = [
-        ./hosts/default.nix
+        ./nixos/default.nix
           inputs.walker.nixosModules.default
         ];
       };

@@ -1,13 +1,13 @@
 {pkgs,config, pkgs-unstable,ignis,... }:
 let
-    custom-sddm-theme = import ./../configuration/sddm-theme.nix { inherit pkgs;};
+    custom-sddm-theme = import ./sddm-theme.nix { inherit pkgs;};
 in
 {
 
   imports =
     [
-        ./../hardware-configuration.nix
-        ./../configuration/packages.nix
+        ./hardware-configuration.nix
+        ./packages.nix
     ];
   nix.settings.experimental-features = "nix-command flakes";
   nix.settings.sandbox = "relaxed";
