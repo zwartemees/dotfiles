@@ -123,13 +123,13 @@ class bluetooth(widgets.Button):
             if len(self.service.connected_devices) >= 1:
                 self.child = widgets.CenterBox(
                     start_widget=widgets.Box(child=[
-                        widgets.Icon(pixel_size=25,image="bluetooth"), 
+                        widgets.Icon(pixel_size=25,image="ignisbluetooth"), 
                         widgets.Label(label=self.service.connected_devices[0].alias)]),
                     end_widget=widgets.Label(label=f"{bluetoothService.connected_devices[0].battery_percentage:3.0f}%"),
                     )
             else:
                 self.child = widgets.Box(
-                    child=[widgets.Icon(pixel_size=25,image="bluetooth"),widgets.Label(label="no device connected")],
+                    child=[widgets.Icon(pixel_size=25,image="ignisbluetooth"),widgets.Label(label="no device connected")],
                     spacing=15
                     )
     
@@ -230,7 +230,8 @@ class mediaPlayer(widgets.Overlay):
 
                    ])]
         self.overlays = [widgets.Box(child = children,  vertical=True)]
-        self.child = widgets.Picture(image=player.art_url if player != None else "none", css_classes = ["image"])
+        if player != None:
+            self.child = widgets.Picture(image=player.art_url, css_classes = ["image"])
     def __init__(self):
         
         super().__init__(
