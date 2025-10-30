@@ -1,9 +1,8 @@
 
 to install clone this repo then run 
 ```bash
-sudo dotter deploy -f
 dotter deploy -f
-sudo nixos-rebuild switch
+sudo nixos-rebuild switch --flake .#nixos
 ```
 the sddm theme is a modified catppuccin theme
 Icons from iconoir
