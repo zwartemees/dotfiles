@@ -91,6 +91,7 @@ environment.systemPackages =[
         enableBluetoothService = true;    # installs gnome-bluetooth
         useGrassSass = false;  # enable Dart Sass
         })
+        pkgs.gobatmon
         pkgs.xsettingsd
         pkgs.matugen
         pkgs.zip
@@ -105,6 +106,8 @@ environment.systemPackages =[
         pkgs.networkmanagerapplet
         pkgs-unstable.bzmenu
         pkgs.mako
+        pkgs.cmake
+	pkgs.gcc
         pkgs.hyprlock
         pkgs.upower-notify
         pkgs.wireguard-tools

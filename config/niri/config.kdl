@@ -61,6 +61,7 @@ layer-rule {
     match namespace="swww-daemon"
     place-within-backdrop true
 }
+spawn-at-startup "gobatmon"
 spawn-at-startup "swww img ~/dotfiles/theme/wallpaper.jpg"
 spawn-at-startup "hypridle"
 spawn-at-startup "wpaperd"
@@ -73,7 +74,7 @@ animations {
 }
 layer-rule{
     match namespace="bar"
-        place-within-backdrop true
+    place-within-backdrop true
 }
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
@@ -87,14 +88,14 @@ window-rule {
 window-rule{
     match title=r#"^Network Manager$"#
     open-floating true
-        default-column-width { proportion 0.4; }
+    default-column-width { proportion 0.4; }
     default-window-height { fixed 600; }
     default-floating-position x=300 y=100
 }
 window-rule{
     match title=r#"^vpn-toggle$"#
     open-floating true
-        default-column-width { proportion 0.3; }
+    default-column-width { proportion 0.3; }
     default-window-height { fixed 250; }
     default-floating-position x=300 y=200
 }
@@ -114,7 +115,7 @@ binds {
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     Mod+O repeat=false { toggle-overview; }
     Mod+Q { close-window; }
-    Ctrl+W { spawn "~/.config/niri/scripts/close.sh"; }
+    /-Ctrl+W { spawn "~/.config/niri/scripts/close.sh"; }
     Mod+Left  { focus-column-left; }
     Mod+Page_Down  { focus-window-down; }
     Mod+Page_Up    { focus-window-up; }
