@@ -16,7 +16,7 @@ in
       settings."org/gnome/desktop/interface" = {
         gtk-theme = "adw-gtk3-dark";
         cursor-theme = "Bibata";
-#        icon-theme = "Flat-Remix-Red-Dark";
+        icon-theme = "Flatery";
 #        font-name = "Noto Sans Medium 11";
 #        document-font-name = "Noto Sans Medium 11";
 #        monospace-font-name = "Noto Sans Mono Medium 11";
@@ -47,6 +47,15 @@ in
  	    enable = true;
 	    wayland.enable = true;
   };
+  services.chrony ={
+      enable = true;
+      
+      servers = [
+      "time.google.com"
+      "time.cloudflare.com"
+      "pool.ntp.org"
+      ];
+ };
   programs.walker.enable = true;
   programs.niri.enable = true;
   programs.xwayland.enable = true;
@@ -57,7 +66,6 @@ in
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # # Set your time zone.
   time.timeZone = "Europe/Brussels";
-
   i18n.defaultLocale = "en_GB.UTF-8";
 
   services.xserver.xkb = {
@@ -83,6 +91,7 @@ environment.systemPackages =[
         enableBluetoothService = true;    # installs gnome-bluetooth
         useGrassSass = false;  # enable Dart Sass
         })
+        pkgs.xsettingsd
         pkgs.matugen
         pkgs.zip
         pkgs.jetbrains.jdk

@@ -18,4 +18,5 @@ iconoir for the icons in config/ignis/icons
 sddm theme https://github.com/catppuccin/sddm
 gtk3 theme https://github.com/lassekongo83/adw-gtk3
 gtk4 theme is libadwaita
+icon theme is form https://github.com/cbrnix/Flatery/tree/master
 cursor theme is https://github.com/ful1e5/Bibata_Cursor/tree/main

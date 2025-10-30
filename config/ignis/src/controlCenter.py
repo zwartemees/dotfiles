@@ -138,7 +138,7 @@ class bluetooth(widgets.Button):
     def __init__(self):
         super().__init__(
             css_classes = ["bluetooth","networkBlock"],
-            on_click = lambda self: utils.exec_sh("bzmenu -l walker")
+            on_click = lambda self: utils.exec_sh("bzmenu -l walker -i xdg")
         )
         for device in bluetoothService.devices:
             device.connect("notify::connected", lambda x,y: self.draw())
