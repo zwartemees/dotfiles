@@ -46,7 +46,7 @@ class MenuButton(widgets.Button):
     controlCenter = controlCenter()
 
     def updateBattery(self, batteryIcon: widgets.Icon):
-        names = ["battery-charging", "battery-full","battery75","battery50","battery25","battery-empty"]
+        names = ["battery-charging", "batteryfull","battery75","battery50","battery25","battery-empty"]
         percent = upower.batteries[0].percent
         name = names[0]
         if percent <= 10:
