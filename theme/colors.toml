@@ -1,31 +1,36 @@
 [cursor]
-foreground = '#000000'
-outline = '#FFFFFF'
-background = '#000000'
+foreground = "#93a1a1"   # light cyan-gray
+outline = "#002b36"      # base03 (darkest background)
+background = "#073642"   # base02 (cursor fill)
+
 [sddm]
-rosewater = "#f4dbd6"
-flamingo  = "#f0c6c6"
-pink      = "#f5bde6"
-mauve     = "#c6a0f6"
-red       = "#ed8796"
-maroon    = "#ee99a0"
-peach     = "#f5a97f"
-yellow    = "#eed49f"
-green     = "#a6da95"
-teal      = "#8bd5ca"
-sky       = "#91d7e3"
-sapphire  = "#7dc4e4"
-blue      = "#8aadf4"
-lavender  = "#b7bdf8"
-text      = "#cad3f5"
-subtext1  = "#b8c0e0"
-subtext0  = "#a5adcb"
-overlay2  = "#939ab7"
-overlay1  = "#8087a2"
-overlay0  = "#6e738d"
-surface2  = "#5b6078"
-surface1  = "#494d64"
-surface0  = "#363a4f"
-base      = "#24273a"
-mantle    = "#1e2030"
-crust     = "#181926"
+accent_warning   = "#b58900"  # yellow
+accent_info      = "#268bd2"  # blue
+accent_primary   = "#2aa198"  # cyan
+accent_secondary = "#859900"  # green
+accent_light     = "#eee8d5"  # base2 (light highlight)
+accent_hover     = "#6c71c4"  # violet
+accent_alt       = "#cb4b16"  # orange
+
+error       = "#dc322f"  # red
+error_alt   = "#cb4b16"  # orange
+warning     = "#b58900"  # yellow
+attention   = "#b58900"  # yellow (same as warning)
+success     = "#859900"  # green
+info        = "#268bd2"  # blue
+link        = "#2aa198"  # cyan
+
+fg_primary         = "#93a1a1"  # base1 (primary text)
+fg_secondary       = "#839496"  # base0 (secondary text)
+fg_muted           = "#657b83"  # base00 (muted)
+fg_overlay_strong  = "#586e75"  # base01
+fg_overlay_medium  = "#073642"  # base02
+fg_overlay_weak    = "#002b36"  # base03
+
+bg_surface_high   = "#073642"  # slightly lighter surface
+bg_surface_medium = "#002b36"  # base03 (default dark background)
+bg_surface_low    = "#00212b"  # extra deep
+bg_base           = "#002b36"  # main background
+bg_subtle         = "#001f27"  # deeper accent background
+bg_deep           = "#001a1f"  # deepest shadow
+

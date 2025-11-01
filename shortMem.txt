@@ -1,0 +1,47 @@
+{ pkgs, ... }:
+
+let
+    colors = builtins.fromTOML (builtins.readFile ./../theme/colors.toml);
+in
+
+    pkgs.stdenv.mkDerivation {
+        pname = "custom-sddm-theme";
+        version = "1.0";
+
+        src = ./../theme/sddm/theme;
+
+        installPhase = ''
+            rm -rf $out/share/sddm/themes/custom-sddm-theme
+            mkdir -p $out/share/sddm/themes/custom-sddm-theme
+            cp -r * $out/share/sddm/themes/custom-sddm-theme
+              substitute theme.conf.in $out/share/sddm/themes/custom-sddm-theme/theme.conf \
+                --subst-var-by accent_primary "${colors.sddm.accent_primary}"
+                --subst-var-by accent_secondary "${colors.sddm.accent_secondary}"
+                --subst-var-by accent_light "${colors.sddm.accent_light}"
+                --subst-var-by accent_hover "${colors.sddm.accent_hover}"
+                --subst-var-by accent_alt "${colors.sddm.accent_alt}"
+                --subst-var-by error "${colors.sddm.error}"
+                --subst-var-by error_alt "${colors.sddm.error_alt}"
+                --subst-var-by warning "${colors.sddm.warning}"
+                --subst-var-by attention "${colors.sddm.attention}"
+                --subst-var-by success "${colors.sddm.success}"
+                --subst-var-by info "${colors.sddm.info}"
+                --subst-var-by link "${colors.sddm.link}"
+                --subst-var-by fg_primary "${colors.sddm.fg_primary}"
+                --subst-var-by fg_secondary "${colors.sddm.fg_secondary}"
+                --subst-var-by fg_muted "${colors.sddm.fg_muted}"
+                --subst-var-by fg_overlay_strong "${colors.sddm.fg_overlay_strong}"
+                --subst-var-by fg_overlay_medium "${colors.sddm.fg_overlay_medium}"
+                --subst-var-by fg_overlay_weak "${colors.sddm.fg_overlay_weak}"
+                --subst-var-by bg_surface_high "${colors.sddm.bg_surface_high}"
+                --subst-var-by bg_surface_medium "${colors.sddm.bg_surface_medium}"
+                --subst-var-by bg_surface_low "${colors.sddm.bg_surface_low}"
+                --subst-var-by bg_base "${colors.sddm.bg_base}"
+                --subst-var-by bg_subtle "${colors.sddm.bg_subtle}"
+                --subst-var-by bg_deep "${colors.sddm.bg_deep}"
+                '';
+        meta = {
+            description = "importing custom SDDM theme";
+            platforms = pkgs.lib.platforms.linux;
+        };
+    }

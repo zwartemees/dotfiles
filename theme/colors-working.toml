@@ -1,0 +1,34 @@
+[cursor]
+foreground = '#000000'
+outline = '#FFFFFF'
+background = '#000000'
+[sddm]
+accent_warning = "#c6a0f6"
+accent_info = "#c6a0f6"
+accent_primary = "#c6a0f6"
+accent_secondary = "#f5bde6"
+accent_light = "#f0c6c6"
+accent_hover = "#7dc4e4"
+accent_alt = "#b7bdf8"
+
+error = "#ed8796"
+error_alt = "#ee99a0"
+warning = "#f5a97f"
+attention = "#eed49f"
+success = "#a6da95"
+info = "#8bd5ca"
+link = "#8aadf4"
+
+fg_primary = "#cad3f5"
+fg_secondary = "#b8c0e0"
+fg_muted = "#a5adcb"
+fg_overlay_strong = "#939ab7"
+fg_overlay_medium = "#8087a2"
+fg_overlay_weak = "#6e738d"
+
+bg_surface_high = "#5b6078"
+bg_surface_medium = "#494d64"
+bg_surface_low = "#363a4f"
+bg_base = "#24273a"
+bg_subtle = "#1e2030"
+bg_deep = "#181926"
