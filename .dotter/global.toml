@@ -13,7 +13,7 @@ config = "~/.config"
 "theme/icons" = {target = "~/.local/share/icons", type="symbolic"}
 firefox = "~/.mozilla/firefox"
 [default.variables]
-
+user = "mees"
 
 [settings]
 default_target_type = "automatic"

@@ -1,18 +1,8 @@
-[General]
-Font="Noto Sans"
-FontSize=12
-ClockEnabled="true"
-CustomBackground="false"
-LoginBackground="false"
-Background="backgrounds/wall.jpg"
-UserIcon="false"
-AccentColor="#7dc4e4"
-
-# Uncomment this option to show the last letter of the password
-# for the number of milliseconds specified
-# PasswordShowLastLetter=1000
-
-# DON'T CHANGE THESE
+[cursor]
+foreground = '#000000'
+outline = '#FFFFFF'
+background = '#000000'
+[sddm]
 rosewater = "#f4dbd6"
 flamingo  = "#f0c6c6"
 pink      = "#f5bde6"

@@ -101,6 +101,7 @@ environment.systemPackages =[
         pkgs.swww
         pkgs.wpaperd
         pkgs.libnotify
+        pkgs-unstable.typtea
         pkgs-unstable.nmgui
         pkgs.networkmanager_dmenu
         pkgs.networkmanagerapplet

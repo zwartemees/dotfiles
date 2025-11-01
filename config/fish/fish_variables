@@ -35,4 +35,4 @@ SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_prompt_pwd_dir_length:4
 SETUVAR fish_prompt_pwd_full_dirs:1
-SETUVAR fish_user_paths:/nix/var/nix/profiles/default/bin\x1e/home/mees/\x2enix\x2dprofile/bin\x1e/nix/store/1jn2jiqmnn11ns97r0jx6x19yblr5dc6\x2dghostty\x2d1\x2e2\x2e2/bin
+SETUVAR fish_user_paths:/nix/var/nix/profiles/default/bin\x1e/home/{{user}}/\x2enix\x2dprofile/bin\x1e/nix/store/1jn2jiqmnn11ns97r0jx6x19yblr5dc6\x2dghostty\x2d1\x2e2\x2e2/bin
