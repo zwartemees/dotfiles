@@ -15,7 +15,7 @@ in
             mkdir -p $out/share/sddm/themes/custom-sddm-theme
             cp -r * $out/share/sddm/themes/custom-sddm-theme
               substitute theme.conf.in $out/share/sddm/themes/custom-sddm-theme/theme.conf \
-                --subst-var-by rosewater "${colors.rosewater}" \
+                --subst-var-by rosewater "${colors.sddm.rosewater}" \
         '';
 
         meta = {
