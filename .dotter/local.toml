@@ -1,4 +1,4 @@
-includes = []
+includes = ["./.dotter/colors_flat.toml" ]
 packages = ["default"]
 
 [files]

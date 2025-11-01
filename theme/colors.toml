@@ -1,3 +1,9 @@
+[niri]
+active-color = "#32a852"
+inactive-color = "#32a852"
+urgent-color = "#32a852"
+shadow = "#32a852"
+
 [cursor]
 foreground = "#93a1a1"   # light cyan-gray
 outline = "#002b36"      # base03 (darkest background)
