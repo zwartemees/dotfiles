@@ -2,7 +2,7 @@ source ~/.config/fish/functions/prompt_segment.fish
 function fish_right_prompt
         set -l cmd_status $status
         if test $cmd_status -ne 0
-		render_segment red black "$cmd_status"
+		render_segment "{{prompt_error}}" "{{foreground_text}}" "$cmd_status"
         end
     
         if not command -sq git
@@ -47,43 +47,7 @@ function fish_right_prompt
                         set status_stashed 1
                 end
         end
-    
-        # git-status' porcelain v1 format starts with 2 letters on each line:
-        #   The first letter (X) denotes the index state.
-        #   The second letter (Y) denotes the working directory state.
-        #
-        # The following table presents the possible combinations:
-        # * The underscore character denotes whitespace.
-        # * The cell values stand for the following file states:
-        #   a: added
-        #   d: deleted
-        #   m: modified
-        #   r: renamed
-        #   u: unmerged
-        #   t: untracked
-        # * Cells with more than one letter signify that both states
-        #   are simultaneously the case. This is possible since the git index
-        #   and working directory operate independently of each other.
-        # * Cells which are empty are unhandled by this code.
-        # * T (= type change) is undocumented.
-        #   See Git v1.7.8.2 release notes for more information.
-        #
-        #   \ Y→
-        #  X \
-        #  ↓  | A  | C  | D  | M  | R  | T  | U  | X  | B  | ?  | _
-        # ----+----+----+----+----+----+----+----+----+----+----+----
-        #  A  | u  |    | ad | am | r  | am | u  |    |    |    | a
-        #  C  |    |    | ad | am | r  | am | u  |    |    |    | a
-        #  D  |    |    | u  | am | r  | am | u  |    |    |    | a
-        #  M  |    |    | ad | am | r  | am | u  |    |    |    | a
-        #  R  | r  | r  | rd | rm | r  | rm | ur | r  | r  | r  | r
-        #  T  |    |    | ad | am | r  | am | u  |    |    |    | a
-        #  U  | u  | u  | u  | um | ur | um | u  | u  | u  | u  | u
-        #  X  |    |    |    | m  | r  | m  | u  |    |    |    |
-        #  B  |    |    |    | m  | r  | m  | u  |    |    |    |
-        #  ?  |    |    |    | m  | r  | m  | u  |    |    | t  |
-        #  _  |    |    | d  | m  | r  | m  | u  |    |    |    |
-        set -l porcelain_status (command git status --porcelain 2>/dev/null | string sub -l2)
+           set -l porcelain_status (command git status --porcelain 2>/dev/null | string sub -l2)
         set -l status_added 0
 	if string match -qr '[ACDMT][ MT]|[ACMT]D' $porcelain_status
                 set status_added 1
@@ -109,52 +73,50 @@ function fish_right_prompt
                 set status_untracked 1
         end
     
-        set_color -o
-    
         if test -n "$branch"
                 if test $branch_detached -ne 0
-                        render_segment purple black "$branch"
+                        render_segment "{{prompt_detached_branch}}" "{{foreground_text}}" "$branch"
                 else
-                	render_segment green black "$branch"
+                	render_segment "{{prompt_branch}}" "{{foreground_text}}" "$branch"
                 end
         end
         if test -n "$commit"
-                echo -n render_segment yellow black "$commit"
+                echo -n render_segment "{{prompt_commit}}" "{{foreground_text}}" "$commit"
         end
         if test -n "$action"
                 set_color normal
-                echo -n render_segment red black "$action"
+                echo -n render_segment "{{prompt_action}}" "{{foreground_text}}" "$action"
         end
 	
 	set -l status_line ""
         
-	if test $status_ahead -ne 0
-                 set status_line "$status_line" (set_color brmagenta)''
+	    if test $status_ahead -ne 0
+                 set status_line "$status_line" (set_color (string sub -s 1 "{{status_ahead}}"))''
         end
         if test $status_behind -ne 0
-                 set status_line "$status_line" (set_color brmagenta)''
+                 set status_line "$status_line" (set_color (string sub -s 1 "{{status_behind}}"))''
         end
         if test $status_stashed -ne 0
-                 set status_line "$status_line" (set_color cyan)''
+                 set status_line "$status_line" (set_color (string sub -s 1 "{{status_stashed}}"))''
         end
         if test $status_added -ne 0
-                set status_line "$status_line" (set_color green)'󰐕'
+                set status_line "$status_line" (set_color (string sub -s 1 "{{status_added}}"))'󰐕'
         end
         if test $status_deleted -ne 0
-                 set status_line "$status_line" (set_color red)''
+                 set status_line "$status_line" (set_color (string sub -s 1 "{{status_deleted}}"))''
         end
         if test $status_modified -ne 0
-                set status_line "$status_line" (set_color blue)''
+                set status_line "$status_line" (set_color (string sub -s 1 "{{status_modified}}"))''
         end
         if test $status_renamed -ne 0
-                 set status_line "$status_line" (set_color magenta)''
+                 set status_line "$status_line" (set_color (string sub -s 1 "{{status_renamed}}"))''
         end
         if test $status_unmerged -ne 0
-                 set status_line "$status_line" (set_color yellow)''
+                 set status_line "$status_line" (set_color (string sub -s 1 "{{status_unmerged}}"))''
         end
         if test $status_untracked -ne 0
-                 set status_line "$status_line" (set_color white)''
+                 set status_line "$status_line" (set_color (string sub -s 1 "{{status_untracked}}"))''
         end
 
-   render_segment brblack brblack (string sub -s 2 -- "$status_line") 
+   render_segment "{{foreground_text}}" "{{foreground_text}}" (string sub -s 2 -- "$status_line") 
 end

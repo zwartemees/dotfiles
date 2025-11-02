@@ -17,9 +17,6 @@ in
         gtk-theme = "adw-gtk3-dark";
         cursor-theme = "Bibata";
         icon-theme = "Flatery";
-#        font-name = "Noto Sans Medium 11";
-#        document-font-name = "Noto Sans Medium 11";
-#        monospace-font-name = "Noto Sans Mono Medium 11";
       };
     }
   ];
@@ -72,7 +69,10 @@ in
     layout = "us";
     variant = "";
   };
-
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024; # 16GB
+  }];
   users.users.mees = {
     isNormalUser = true;
     description = "mees";
