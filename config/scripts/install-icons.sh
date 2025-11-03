@@ -14,7 +14,7 @@ if [ -z "$theme" ]; then
   nix-shell default.nix --argstr schemeName catppuccin --run 'cp colors.toml ../../.dotter'
 fi
  nix-shell default.nix --run 'cp colors.toml ../../.dotter'
- cp colors.toml ../cursor_theme/colors.toml 
+ cp colors.toml ../colors.toml 
 
 echo "installing cursor theme"
 cd ~/dotfiles/theme/cursor_theme

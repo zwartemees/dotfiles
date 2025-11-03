@@ -10,7 +10,7 @@
     let
       system = "x86_64-linux";
       pythonVersion = "3.14";
-      colors = builtins.fromTOML (builtins.readFile ./colors.toml);
+      colors = builtins.fromTOML (builtins.readFile ./../colors.toml);
       pkgs = import nixpkgs { inherit system; };
       myPython = nixpkgs-python.packages.${system}.${pythonVersion};
     in
