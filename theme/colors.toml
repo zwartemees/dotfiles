@@ -1,4 +1,11 @@
 [gtk]
+gtk_accent = "#e78284"
+gtk_error = "#e78284"
+gtk_success = "#e78284"
+gtk_text = "#e78284"
+gtk_bg_popup = "#e78284"
+gtk_bg = "#e78284"
+gtk_bg_destructive = "#e78284"
 
 [fish_prompt]
 prompt_normal_mode = "#A6E3A1"       # green - normal mode

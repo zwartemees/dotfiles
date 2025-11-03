@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR DISPLAY:\x3a0
-SETUVAR GTK_THEME:adw\x2dgtk3\x2ddark
+SETUVAR GTK_THEME:adw
 
 SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:1
 SETUVAR __fish_initialized:3800

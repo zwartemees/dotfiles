@@ -6,11 +6,14 @@ depends = []
 [default.files]
 #config = {target = "~/.config", type="symbolic"}
 config = "~/.config"
-"theme/gtk/adw" ="~/.themes/adw"
+"theme/gtk/adw" ={target = "~/.themes/adw", type="symbolic"}
 "git/gitconfig" = "~/.gitconfig"
 "theme/icons" = {target = "~/.local/share/icons", type="symbolic"}
 firefox = "~/.mozilla/firefox"
+"theme/gtk/gtk.css" = "~/.config/gtk/gtk.css"
+
 [default.variables]
 user = "mees"
+
 [settings]
 default_target_type = "automatic"
