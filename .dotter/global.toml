@@ -15,5 +15,7 @@ firefox = "~/.mozilla/firefox"
 [default.variables]
 user = "mees"
 
+[packages]
+
 [settings]
 default_target_type = "automatic"

@@ -4,7 +4,7 @@ let
     colors = builtins.fromTOML (builtins.readFile ./../theme/colors.toml);
     themeConf = pkgs.substituteAll {
         src = ./../theme/sddm/theme/theme.conf.in;
-        inherit (colors.sddm)
+        inherit (colors.default.variables)
         accent_primary accent_secondary accent_light accent_hover accent_alt
         accent_warning accent_info
         error error_alt warning attention success info link

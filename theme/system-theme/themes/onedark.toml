@@ -1,0 +1,45 @@
+# Core roles
+color_primary       = "#61AFEF"  # Blue
+color_secondary     = "#98C379"  # Green
+color_tertiary      = "#C678DD"  # Purple
+color_warning       = "#E5C07B"  # Yellow
+color_error         = "#E06C75"  # Red
+color_info          = "#56B6C2"  # Cyan
+color_muted         = "#5C6370"  # Comment gray
+color_text          = "#ABB2BF"  # Default foreground
+color_subtext       = "#828997"  # Dimmed foreground
+color_background    = "#282C34"  # Main background
+color_popup         = "#3E4451"  # Popup background
+color_surface       = "#21252B"  # Surface layer
+color_highlight     = "#3E4451"  # Selection highlight
+color_shadow        = "#1C1F26"  # Shadow tone
+
+# Cursor
+cursor_foreground   = "#ABB2BF"
+cursor_background   = "#528BFF"
+cursor_outline      = "#3E4451"
+
+# Accents
+accent_warning      = "#D19A66"
+accent_info         = "#56B6C2"
+accent_link         = "#61AFEF"
+accent_success      = "#98C379"
+accent_hover        = "#C678DD"
+accent_error        = "#E06C75"
+accent_light        = "#EAEAEA"
+
+# Foreground layers
+fg_primary          = "#ABB2BF"
+fg_secondary        = "#828997"
+fg_muted            = "#5C6370"
+fg_overlay_strong   = "#4B5263"
+fg_overlay_medium   = "#3E4451"
+fg_overlay_weak     = "#2C313C"
+
+# Background layers
+bg_high             = "#3E4451"
+bg_medium           = "#282C34"
+bg_low              = "#21252B"
+bg_subtle           = "#1C1F26"
+bg_deep             = "#181A1F"
+

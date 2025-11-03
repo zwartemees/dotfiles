@@ -10,7 +10,7 @@
     let
       system = "x86_64-linux";
       pythonVersion = "3.14";
-      colors = builtins.fromTOML (builtins.readFile ./../colors.toml);
+      colors = builtins.fromTOML (builtins.readFile ./colors.toml);
       pkgs = import nixpkgs { inherit system; };
       myPython = nixpkgs-python.packages.${system}.${pythonVersion};
     in
@@ -32,9 +32,9 @@
           substituteAll ${./Bibata/metadata.toml.in} \
             ./Bibata/metadata.toml
 '';
-    foreground = colors.cursor.foreground;
-    outline = colors.cursor.outline;
-    background = colors.cursor.outline;
+    foreground = colors.default.variables.foreground;
+    outline = colors.default.variables.outline;
+    background = colors.default.variables.background;
       };
     };
 }
