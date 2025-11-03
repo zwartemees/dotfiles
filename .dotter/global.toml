@@ -6,9 +6,7 @@ depends = []
 [default.files]
 #config = {target = "~/.config", type="symbolic"}
 config = "~/.config"
-"theme/gtk/adw-gtk3-dark" ="~/.themes/adw-gtk3-dark"
-"theme/gtk/gtk3-settings.ini" = "~/.config/gtk-3.0/settings.ini"
-"theme/gtk/gtk4-dark.css" = "~/.config/gtk-4.0/gtk.css"
+"theme/gtk/adw" ="~/.themes/adw"
 "git/gitconfig" = "~/.gitconfig"
 "theme/icons" = {target = "~/.local/share/icons", type="symbolic"}
 firefox = "~/.mozilla/firefox"
