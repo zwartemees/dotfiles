@@ -114,7 +114,7 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     Mod+O repeat=false { toggle-overview; }
-    Mod+Q { close-window; }
+    Ctrl+Q { close-window; }
     /-Ctrl+W { spawn "~/.config/niri/scripts/close.sh"; }
     Mod+Left  { focus-column-left; }
     Mod+Page_Down  { focus-window-down; }

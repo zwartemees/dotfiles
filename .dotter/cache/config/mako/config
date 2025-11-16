@@ -4,7 +4,7 @@ background-color=@background
 width=300
 height=100
 border-size=2
-border-color=#fab387
+border-color=#ebbcba
 border-radius=15
 icons=0
 max-icon-size=64
@@ -13,13 +13,13 @@ ignore-timeout=1
 font=monospace 12
 
 [urgency=low]
-border-color=#fab387
+border-color=#9ccfd8
 
 [urgency=normal]
-border-color=#eba0ac
+border-color=#f6c177
 
 [urgency=high]
-border-color=#f38ba8
+border-color=#eb6f92
 default-timeout=0
 
 [category=mpd]

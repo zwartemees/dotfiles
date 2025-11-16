@@ -11,9 +11,9 @@ gtk_accent           = "@primary@"
 gtk_error            = "@error@"
 gtk_success          = "@success@"
 gtk_text             = "@text@"
-gtk_bg_popup         = "@foreground@"
+gtk_bg_popup         = "@muted_background@"
 gtk_bg               = "@background@"
-gtk_bg_destructive   = "@foreground@"
+gtk_bg_destructive   = "@muted_background@"
 
 # Statusline
 prompt_normal_mode       = "@succes@"

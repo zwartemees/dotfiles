@@ -2,7 +2,7 @@ source ~/.config/fish/functions/prompt_segment.fish
 function fish_right_prompt
         set -l cmd_status $status
         if test $cmd_status -ne 0
-		render_segment "#f38ba8" "#1e1e2e" "$cmd_status"
+		render_segment "#eb6f92" "#575279" "$cmd_status"
         end
     
         if not command -sq git
@@ -75,48 +75,48 @@ function fish_right_prompt
     
         if test -n "$branch"
                 if test $branch_detached -ne 0
-                        render_segment "#89dceb" "#1e1e2e" "$branch"
+                        render_segment "#c4a7e7" "#575279" "$branch"
                 else
-                	render_segment "#fab387" "#1e1e2e" "$branch"
+                	render_segment "#ebbcba" "#575279" "$branch"
                 end
         end
         if test -n "$commit"
-                echo -n render_segment "#89b4fa" "#1e1e2e" "$commit"
+                echo -n render_segment "#ebbcba" "#575279" "$commit"
         end
         if test -n "$action"
                 set_color normal
-                echo -n render_segment "#fab387" "#1e1e2e" "$action"
+                echo -n render_segment "#9ccfd8" "#575279" "$action"
         end
 	
 	set -l status_line ""
         
 	    if test $status_ahead -ne 0
-                 set status_line "$status_line" (set_color (string sub -s 1 "#b4befe"))''
+                 set status_line "$status_line" (set_color (string sub -s 1 "#ea9a97"))''
         end
         if test $status_behind -ne 0
-                 set status_line "$status_line" (set_color (string sub -s 1 "#fab387"))''
+                 set status_line "$status_line" (set_color (string sub -s 1 "#9ccfd8"))''
         end
         if test $status_stashed -ne 0
-                 set status_line "$status_line" (set_color (string sub -s 1 "#fab387"))''
+                 set status_line "$status_line" (set_color (string sub -s 1 "#9ccfd8"))''
         end
         if test $status_added -ne 0
-                set status_line "$status_line" (set_color (string sub -s 1 "#f9e2af"))'󰐕'
+                set status_line "$status_line" (set_color (string sub -s 1 "#ea9a97"))'󰐕'
         end
         if test $status_deleted -ne 0
-                 set status_line "$status_line" (set_color (string sub -s 1 "#f9e2af"))''
+                 set status_line "$status_line" (set_color (string sub -s 1 "#ea9a97"))''
         end
         if test $status_modified -ne 0
-                set status_line "$status_line" (set_color (string sub -s 1 "#f9e2af"))''
+                set status_line "$status_line" (set_color (string sub -s 1 "#ea9a97"))''
         end
         if test $status_renamed -ne 0
-                 set status_line "$status_line" (set_color (string sub -s 1 "#94e2d5"))''
+                 set status_line "$status_line" (set_color (string sub -s 1 "#c4a7e7"))''
         end
         if test $status_unmerged -ne 0
-                 set status_line "$status_line" (set_color (string sub -s 1 "#eba0ac"))''
+                 set status_line "$status_line" (set_color (string sub -s 1 "#f6c177"))''
         end
         if test $status_untracked -ne 0
-                 set status_line "$status_line" (set_color (string sub -s 1 "#b4befe"))''
+                 set status_line "$status_line" (set_color (string sub -s 1 "#ea9a97"))''
         end
 
-   render_segment "#fab387" "#fab387" (string sub -s 2 -- "$status_line") 
+   render_segment "#ebbcba" "#575279" (string sub -s 2 -- "$status_line") 
 end
