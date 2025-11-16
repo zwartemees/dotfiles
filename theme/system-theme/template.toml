@@ -43,7 +43,7 @@ status_modified          = "@muted_secondary@"
 status_renamed           = "@muted_tertiary@"
 status_unmerged          = "@warning@"
 status_untracked         = "@muted_primary@"
-foreground_text          = "@text@"
+foreground_text          = "@inverse_text@"
 
 # Fish shell
 color_autosuggestion           = "@subtext@"
@@ -101,8 +101,8 @@ info        = "@info@"
 link        = "@tertiary@"
 
 # Foreground layers
-fg_primary         = "@primary@"
-fg_secondary       = "@secondary@"
+fg_primary         = "@foreground@"
+fg_secondary       = "@foreground@"
 fg_muted           = "@muted_foreground@"
 fg_overlay_strong  = "@muted_foreground@"
 fg_overlay_medium  = "@muted_foreground@"

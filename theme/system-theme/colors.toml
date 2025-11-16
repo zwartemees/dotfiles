@@ -43,7 +43,7 @@ status_modified          = "#f9e2af"
 status_renamed           = "#94e2d5"
 status_unmerged          = "#eba0ac"
 status_untracked         = "#b4befe"
-foreground_text          = "#cdd6f4"
+foreground_text          = "#1e1e2e"
 
 # Fish shell
 color_autosuggestion           = "#cdd6f4"
@@ -101,8 +101,8 @@ info        = "#fab387"
 link        = "#89dceb"
 
 # Foreground layers
-fg_primary         = "#89b4fa"
-fg_secondary       = "#fab387"
+fg_primary         = "#bac2de"
+fg_secondary       = "#bac2de"
 fg_muted           = "#bac2de"
 fg_overlay_strong  = "#bac2de"
 fg_overlay_medium  = "#bac2de"

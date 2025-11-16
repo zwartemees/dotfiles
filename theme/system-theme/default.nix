@@ -24,6 +24,7 @@ pkgs.mkShell {
         error         = colors.error;
         info          = colors.info;
         text          = colors.text;
+        inverse_text  = colors.inverse_text;
         subtext       = colors.subtext;
         highlight     = colors.highlight;
         succes        = colors.succes;

@@ -2,7 +2,7 @@ source ~/.config/fish/functions/prompt_segment.fish
 function fish_right_prompt
         set -l cmd_status $status
         if test $cmd_status -ne 0
-		render_segment "#f38ba8" "#cdd6f4" "$cmd_status"
+		render_segment "#f38ba8" "#1e1e2e" "$cmd_status"
         end
     
         if not command -sq git
@@ -75,17 +75,17 @@ function fish_right_prompt
     
         if test -n "$branch"
                 if test $branch_detached -ne 0
-                        render_segment "#89dceb" "#cdd6f4" "$branch"
+                        render_segment "#89dceb" "#1e1e2e" "$branch"
                 else
-                	render_segment "#fab387" "#cdd6f4" "$branch"
+                	render_segment "#fab387" "#1e1e2e" "$branch"
                 end
         end
         if test -n "$commit"
-                echo -n render_segment "#89b4fa" "#cdd6f4" "$commit"
+                echo -n render_segment "#89b4fa" "#1e1e2e" "$commit"
         end
         if test -n "$action"
                 set_color normal
-                echo -n render_segment "#fab387" "#cdd6f4" "$action"
+                echo -n render_segment "#fab387" "#1e1e2e" "$action"
         end
 	
 	set -l status_line ""
