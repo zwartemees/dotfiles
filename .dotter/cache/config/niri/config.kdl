@@ -37,20 +37,20 @@ layout {
     focus-ring {
        off
         width 2
-       active-color "#61AFEF"
-       inactive-color "#1C1F26"
+       active-color "#89b4fa"
+       inactive-color "#313244"
     }
     border {
         width 2
-        active-color "#61AFEF"
-        inactive-color "#1C1F26"
-        urgent-color "#E06C75"
+        active-color "#89b4fa"
+        inactive-color "#313244"
+        urgent-color "#eba0ac"
     }
     shadow {
         softness 30
         spread 5
         offset x=0 y=5
-        color "#1C1F26"
+        color "#313244"
     }
     struts {
         right 56

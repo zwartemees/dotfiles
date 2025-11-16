@@ -118,5 +118,5 @@ function fish_right_prompt
                  set status_line "$status_line" (set_color (string sub -s 1 "{{status_untracked}}"))''
         end
 
-   render_segment "{{foreground_text}}" "{{foreground_text}}" (string sub -s 2 -- "$status_line") 
+   render_segment "{{prompt_branch}}" "{{prompt_branch}}" (string sub -s 2 -- "$status_line") 
 end

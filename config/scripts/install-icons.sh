@@ -11,10 +11,10 @@ echo "setting color scheme"
 theme="$1"
 cd ~/dotfiles/theme/system-theme
 if [ -z "$theme" ]; then
-  nix-shell default.nix --argstr schemeName catppuccin --run 'cp colors.toml ../../.dotter'
+    theme = "onedark"
 fi
- nix-shell default.nix --run 'cp colors.toml ../../.dotter'
- cp colors.toml ../colors.toml 
+nix-shell default.nix --argstr schemeName "$theme" --run 'cp colors.toml ../../.dotter'
+cp colors.toml ../colors.toml 
 
 echo "installing cursor theme"
 cd ~/dotfiles/theme/cursor_theme
@@ -24,3 +24,7 @@ mv AC-Bibata ../icons/Bibata
 
 echo "applaying dconf settings"
 dconf load / < ~/dotfiles/theme/dconf/settings.ini
+
+echo "deploying now"
+cd ~/dotfiles
+dotter deploy -f -y

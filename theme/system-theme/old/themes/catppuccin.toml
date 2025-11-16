@@ -1,0 +1,44 @@
+# Core roles
+color_primary       = "#89B4FA"
+color_secondary     = "#A6E3A1"
+color_tertiary      = "#F5C2E7"
+color_warning       = "#F9E2AF"
+color_error         = "#F38BA8"
+color_info          = "#94E2D5"
+color_muted         = "#BAC2DE"
+color_text          = "#CDD6F4"
+color_subtext       = "#7F849C"
+color_background    = "#1E1E2E"
+color_popup         = "#313244"
+color_surface       = "#002B36"
+color_highlight     = "#B4BEFE"
+color_shadow        = "#32A852"
+
+# Cursor
+cursor_foreground   = "#93A1A1"
+cursor_background   = "#073642"
+cursor_outline      = "#002B36"
+
+# Accents
+accent_warning      = "#B58900"
+accent_info         = "#268BD2"
+accent_link         = "#2AA198"
+accent_success      = "#859900"
+accent_hover        = "#6C71C4"
+accent_error        = "#CB4B16"
+accent_light        = "#EEE8D5"
+
+# Foreground layers
+fg_primary          = "#93A1A1"
+fg_secondary        = "#839496"
+fg_muted            = "#657B83"
+fg_overlay_strong   = "#586E75"
+fg_overlay_medium   = "#073642"
+fg_overlay_weak     = "#002B36"
+
+# Background layers
+bg_high             = "#073642"
+bg_medium           = "#002B36"
+bg_low              = "#00212B"
+bg_subtle           = "#001F27"
+bg_deep             = "#001A1F"

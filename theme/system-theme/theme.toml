@@ -1,0 +1,27 @@
+primary = "#f5e0dc"
+secondary = "#fab387"
+tertiary = "#89b4fa"
+
+muted_primary = "#f2cdcd"
+muted_secondary = "#f9e2af"
+muted_tertiary = "#b4befe"
+
+
+warning = "#eba0ac"
+error = "#f38ba8"
+info = "#fab387"
+text = "#cdd6f4"
+subtext = "#cdd6f4"
+highlight = "#89dceb"
+succes = "#a6e3a1"
+hover = "#74c7ec"
+
+foreground = "#bac2de"
+muted_foreground= "#7f849c"
+
+background = "#181825"
+muted_background= "#313244"
+
+cursor_foreground = "#b4befe"
+cursor_background = "#cdd6f4"
+cursor_outline = "#11111b"

@@ -1,10 +1,10 @@
 sort=-time
 layer=overlay
-background-color=#2e3440
+background-color={{mako_background}}
 width=300
 height=100
 border-size=2
-border-color=#88c0d0
+border-color={{mako_border}}
 border-radius=15
 icons=0
 max-icon-size=64
@@ -13,13 +13,13 @@ ignore-timeout=1
 font=monospace 12
 
 [urgency=low]
-border-color=#cccccc
+border-color={{mako_low}}
 
 [urgency=normal]
-border-color=#d08770
+border-color={{mako_normal}}
 
 [urgency=high]
-border-color=#bf616a
+border-color={{mako_high}}
 default-timeout=0
 
 [category=mpd]
