@@ -1,6 +1,6 @@
 [default.variables]
 #mako
-mako_background = "@background"
+mako_background = "@background@"
 mako_border = "@secondary@"
 mako_low = "@info@"
 mako_normal = "@warning@"
