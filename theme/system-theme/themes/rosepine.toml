@@ -13,7 +13,7 @@ text = "#e0def4"
 subtext = "#575279"
 inverse_text = "#575279"
 highlight = "#ea9d34"
-succes = "#56949f"
+success = "#56949f"
 hover = "#907aa9"
 
 foreground = "#faf4ed"

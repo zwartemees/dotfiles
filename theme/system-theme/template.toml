@@ -16,7 +16,7 @@ gtk_bg               = "@background@"
 gtk_bg_destructive   = "@muted_background@"
 
 # Statusline
-prompt_normal_mode       = "@succes@"
+prompt_normal_mode       = "@success@"
 prompt_insert_mode       = "@primary@"
 prompt_visual_mode       = "@info@"
 prompt_replacement_mode  = "@warning@"
@@ -115,4 +115,3 @@ bg_surface_low     = "@muted_background@"
 bg_base            = "@background@"
 bg_subtle          = "@background@"
 bg_deep            = "@background@"
-

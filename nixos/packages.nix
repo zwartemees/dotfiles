@@ -1,23 +1,25 @@
 {config, pkgs, pkgs-unstable, ignis, ...}:
 {
-    programs.walker.enable = true;
-    programs.niri.enable = true;
-    programs.xwayland.enable = true;
-    programs.fish.enable = true;
-	programs.dconf.profiles.user.databases = [{ 
+    programs = {
+      walker.enable = true;
+      niri.enable = true;
+      xwayland.enable = true;
+      fish.enable = true;
+	  dconf.profiles.user.databases = [{ 
         settings."org/gnome/desktop/interface" = {
             gtk-theme = "adw";
             cursor-theme = "Bibata";
             icon-theme = "Flatery";
         };
-    }];
+      }];
+      firefox.enable = true;  
+    };
 
     nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
       
     # gui apps
     ghostty
-	firefox
 	nautilus
     networkmanagerapplet
     jetbrains.idea-ultimate

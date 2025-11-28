@@ -4,7 +4,7 @@ based on the solarized dark colours from adw-colors: https://github.com/lassekon
 /* Catppuccin colors */
 @define-color accent #89b4fa;
 @define-color red #f38ba8;
-@define-color green @success@;
+@define-color green #a6e3a1;
 @define-color text #cdd6f4;
 @define-color surface_0 #313244;
 @define-color base #181825;

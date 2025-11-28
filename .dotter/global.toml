@@ -4,7 +4,6 @@
 depends = []
 
 [default.files]
-#config = {target = "~/.config", type="symbolic"}
 config = "~/.config"
 "theme/gtk/adw" ={target = "~/.themes/adw", type="symbolic"}
 "git/gitconfig" = "~/.gitconfig"
