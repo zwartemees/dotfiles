@@ -70,7 +70,7 @@ spawn-at-startup "wpaperd"
 spawn-at-startup "ignis" "init"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "elephant"
-spawn-at-startup "walker --gapplication-service -b"
+spawn-at-startup "walker --gapplication-service"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
 }

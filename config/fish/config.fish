@@ -1,5 +1,8 @@
+alias nixos-switch "sudo nixos-rebuild switch --flake .#nixos --impure"
 alias close-window "~/dotfiles/niri/scripts/close.sh" 
 alias idea-ultimate "idea-ultimate -Dawt.toolkit.name=WLToolkit -Dide.browser.jcef.enabled=false"
+
+fish_vi_key_bindings
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end

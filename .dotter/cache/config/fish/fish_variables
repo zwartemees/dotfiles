@@ -2,7 +2,6 @@
 # VERSION: 3.0
 SETUVAR DISPLAY:\x3a0
 SETUVAR GTK_THEME:adw
-
 SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:1
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:#cdd6f4

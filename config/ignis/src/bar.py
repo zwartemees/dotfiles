@@ -29,13 +29,14 @@ class bar():
 class WorkspaceButton(widgets.Button):
     def __init__(self, workspace: NiriWorkspace) -> None:
         super().__init__(
-            css_classes=["workspace", "unset"],
+            css_classes=["workspace", "unset", "workspaceButton"],
             on_click=lambda x: workspace.switch_to(),
             child = widgets.Icon(
             image="empty",
             pixel_size = 25, 
             ),
-            halign="start",
+            halign="fill",
+            hexpand = True,
             valign="center",
         )
 
@@ -104,7 +105,7 @@ class TimeButton(widgets.Button):
 
 class Workspaces(widgets.Box):
     def selectList(self, workspaces):
-        size = 6
+        size = 5
 
         if len(workspaces) > size*2:
             activeIndex = 7
@@ -134,6 +135,7 @@ class Workspaces(widgets.Box):
             super().__init__(
                     css_classes=["workspaces"],
                     vertical = True,
+                    hexpand = True,
                     child=niri.bind_many(
                         ["workspaces"],
                         transform=lambda workspaces, *_: [
