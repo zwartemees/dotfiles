@@ -1,5 +1,6 @@
 [helpers]
 no_hash = ".dotter/helpers/no_hash.rhai"
+
 [default]
 depends = []
 

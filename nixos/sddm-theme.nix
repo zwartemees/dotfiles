@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 let
+  dotterGlobal = builtins.fromTOML (builtins.readFile ./../.dotter/global.toml);
+  wallpaperPathStr = dotterGlobal.default.variables.wallpaper;
+  username = dotterGlobal.default.variables.user;
+  wallpaperPath = /. + (builtins.replaceStrings ["~"] ["/home/${username}"] wallpaperPathStr);
+  wallpaperExists = builtins.pathExists wallpaperPath;
+  
   colors = builtins.fromTOML (builtins.readFile ./../theme/colors.toml);
   colorVars = {
     accent_light = colors.default.variables.accent_light;
@@ -46,6 +52,12 @@ pkgs.stdenv.mkDerivation {
     mkdir -p $out/share/sddm/themes/custom-sddm-theme
     cp -r * $out/share/sddm/themes/custom-sddm-theme
     cp ${themeConf} $out/share/sddm/themes/custom-sddm-theme/theme.conf
+    ${if wallpaperExists then ''
+      mkdir -p $out/share/sddm/themes/custom-sddm-theme/backgrounds
+      cp "${wallpaperPath}" $out/share/sddm/themes/custom-sddm-theme/backgrounds/wallpaper.jpg
+    '' else ''
+      echo "Warning: Wallpaper at ${wallpaperPath} not found. Skipping copy."
+    ''}
   '';
 
   meta = {

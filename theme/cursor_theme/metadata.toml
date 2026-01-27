@@ -5,14 +5,14 @@ version = "0.1"
 author = "ATM Jahid Hasan"
 
 [config]
-shape_size = 128
-x_hotspot = 128
-y_hotspot = 128
+shape_size = 64 #128
+x_hotspot = 64 #128
+y_hotspot = 64 #128
 # colors => (base | outline | loader)
 old_substr = ["#00FF00", "#0000FF", "#FF0000"]
 new_substr = ["#4bf542", "#FFFFFF", "#000000"]
 mirror = 0
-xcur_sizes = [24, 32, 40, 48, 56, 64, 72]
+xcur_sizes = [18,24, 32, 40, 48, 56, 64, 72]
 cleanup = ["hycur", "xcur"]
 
 [cursors]

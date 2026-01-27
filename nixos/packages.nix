@@ -12,7 +12,7 @@
             icon-theme = "Flatery";
         };
       }];
-      firefox.enable = true;  
+      firefox.enable = true;
     };
 
     nixpkgs.config.allowUnfree = true;

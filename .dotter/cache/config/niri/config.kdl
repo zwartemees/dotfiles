@@ -18,7 +18,7 @@ hotkey-overlay {
 }
 cursor {
     xcursor-theme "Bibata"
-    xcursor-size 24
+    xcursor-size 18
     hide-when-typing
     hide-after-inactive-ms 1000
 }

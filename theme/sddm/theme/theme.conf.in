@@ -5,7 +5,9 @@ ClockEnabled="false"
 CustomBackground="true"
 LoginBackground="true"
 Background="./backgrounds/wallpaper.jpg"
-UserIcon="false"
+ShowUserIcon="false"
+UserIcon="./../assets/defaultIcon.png"
+
 AccentColor="@accent_primary@"
 
 # Uncomment this option to show the last letter of the password

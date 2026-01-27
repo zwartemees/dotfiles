@@ -195,7 +195,7 @@ class wifi(widgets.Button):
                 self.child = widgets.Box(
                     vertical = True,
                     child=[
-                        widgets.Icon(pixel_size=30,image="wifi"),
+                        widgets.Icon(pixel_size=40,image="wifi"),
                         widgets.Label(label=self.service.wifi.devices[0].ap.ssid),
                         widgets.Label(label=f"{self.service.wifi.devices[0].ap.frequency/1000:1.1f}GHz")
                     ]

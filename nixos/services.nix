@@ -14,7 +14,7 @@ in
   services.displayManager.sddm = {
   	enable = true;
 	wayland.enable = true;
-    theme = "custom-sddm-theme";
+    theme = "${custom-sddm-theme}/share/sddm/themes/custom-sddm-theme";
     package = pkgs.kdePackages.sddm;
     extraPackages = [
         custom-sddm-theme

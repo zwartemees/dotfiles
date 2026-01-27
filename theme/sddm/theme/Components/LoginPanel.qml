@@ -7,7 +7,7 @@ Item {
   property var user: userField.text
   property var password: passwordField.text
   property var session: sessionPanel.session
-  property var inputHeight: Screen.height * 0.032
+  property var inputHeight: Screen.height * 0.035//0.032
   property var inputWidth: Screen.width * 0.16
   Rectangle {
     id: loginBackground
@@ -17,13 +17,10 @@ Item {
     }
     height: inputHeight * ( config.UserIcon == "true" ? 11.2 : 5.3 )
     width: inputWidth * 1.2
-    visible: config.LoginBackground == "true" ? true : false
-    color: config.mantle
     radius: 30
+    visible: config.LoginBackground == "true" ? true : false
+    color: config.surface2
     
-    // Optional: add a border to make the radius more visible
-    border.width: 10
-    border.color: config.mantle
   }
   Column {
     spacing: 8
@@ -54,7 +51,7 @@ Item {
     z: 5
   }
   Column {
-    spacing: 8
+    spacing: 16
     z: 5
     width: inputWidth
     anchors {
@@ -62,12 +59,12 @@ Item {
       horizontalCenter: parent.horizontalCenter
     }
     Rectangle {
-      visible: config.UserIcon == "true" ? true : false
+      visible: config.ShowUserIcon == "true" ? true : false
       width: inputWidth * 0.64 ; height: inputWidth * 0.64
       color: "transparent"
       radius: 1
       Image {
-        source: Qt.resolvedUrl("../assets/defaultIcon.png")
+          source: config.UserIcon // Qt.resolvedUrl("../assets/defaultIcon.png")
         height: parent.width
         width: parent.width
       }
