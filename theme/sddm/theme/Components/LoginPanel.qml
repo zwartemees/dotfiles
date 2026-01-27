@@ -19,6 +19,11 @@ Item {
     width: inputWidth * 1.2
     visible: config.LoginBackground == "true" ? true : false
     color: config.mantle
+    radius: 30
+    
+    // Optional: add a border to make the radius more visible
+    border.width: 10
+    border.color: config.mantle
   }
   Column {
     spacing: 8

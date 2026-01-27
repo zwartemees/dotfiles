@@ -115,3 +115,20 @@ bg_surface_low     = "#313244"
 bg_base            = "#181825"
 bg_subtle          = "#181825"
 bg_deep            = "#181825"
+
+# hyprlock
+bg_overlay = "#313244"
+battery_precentage_text = "#cdd6f4"
+date_text = "#cdd6f4" 
+clock_hours_text = "#89b4fa"
+clock_minutes_text = "#cdd6f4"
+music_text = "#cdd6f4"
+
+lock_input = "#181825"
+lock_outline = "#89b4fa" 
+lock_input_text = "#cdd6f4"
+lock_input_fail = "#f38ba8"
+lock_input_succes = "#a6e3a1"
+
+
+

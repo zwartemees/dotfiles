@@ -1,5 +1,5 @@
 [helpers]
-
+no_hash = ".dotter/helpers/no_hash.rhai"
 [default]
 depends = []
 
@@ -13,6 +13,7 @@ firefox = "~/.mozilla/firefox"
 
 [default.variables]
 user = "mees"
+wallpaper = "~/dotfiles/theme/wallpaper.jpg"
 
 [packages]
 

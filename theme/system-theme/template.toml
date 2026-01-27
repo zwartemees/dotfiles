@@ -115,3 +115,20 @@ bg_surface_low     = "@muted_background@"
 bg_base            = "@background@"
 bg_subtle          = "@background@"
 bg_deep            = "@background@"
+
+# hyprlock
+bg_overlay = "@muted_background@"
+battery_precentage_text = "@text@"
+date_text = "@text@" 
+clock_hours_text = "@primary@"
+clock_minutes_text = "@text@"
+music_text = "@text@"
+
+lock_input = "@background@"
+lock_outline = "@primary@" 
+lock_input_text = "@text@"
+lock_input_fail = "@error@"
+lock_input_succes = "@success@"
+
+
+

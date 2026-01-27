@@ -1,10 +1,10 @@
 [General]
 Font="Noto Sans"
 FontSize=14
-ClockEnabled="true"
-CustomBackground="false"
-LoginBackground="false"
-Background="backgrounds/wall.jpg"
+ClockEnabled="false"
+CustomBackground="true"
+LoginBackground="true"
+Background="./backgrounds/wallpaper.jpg"
 UserIcon="false"
 AccentColor="@accent_primary@"
 

@@ -64,8 +64,8 @@ layer-rule {
     place-within-backdrop true
 }
 spawn-at-startup "gobatmon"
-spawn-at-startup "swww img ~/dotfiles/theme/wallpaper.jpg"
-//spawn-at-startup "hypridle"
+spawn-at-startup "swww img {{wallpaper}}"
+spawn-at-startup "hypridle"
 spawn-at-startup "wpaperd"
 spawn-at-startup "ignis" "init"
 spawn-at-startup "xwayland-satellite"

@@ -22,16 +22,20 @@ class topBar(widgets.CenterBox):
         )
 
 class batteryButton(widgets.Button):
-    def update(self, batteryIcon):
+    def update(self, batteryIcon, label):
         batteryIcon.image = updateBatteryName(batteryIcon)
+        label.label = f"{upower.batteries[0].percent/100:4.0%}"
     def __init__(self):
         batteryIcon = widgets.Icon(pixel_size=25)
-        utils.Poll(1000, lambda x: self.update(batteryIcon))
+        label = widgets.Label()
+        utils.Poll(1000, lambda x: self.update(batteryIcon,label))
         super().__init__(
         css_classes = ["batteryButton"],
-        child = widgets.Box(child = [
+        child = widgets.Box(
+            spacing = 5,
+            child = [
             batteryIcon,
-            widgets.Label(label = f"{upower.batteries[0].percent}%")
+            label
         ])
         )
 
@@ -145,14 +149,13 @@ class bluetooth(widgets.Button):
 
     def draw(self):
             if len(self.service.connected_devices) >= 1:
-                self.child = widgets.CenterBox(
-                    start_widget=widgets.Box(
+                self.child = widgets.Box(
                         vertical = True,
                         child=[
                             widgets.Icon(pixel_size=40,image="ignisbluetooth"),
-                            widgets.Label(label=self.service.connected_devices[0].alias)]
-                        ),
-                    end_widget=widgets.Label(label=f"{bluetoothService.connected_devices[0].battery_percentage:3.0f}%"),
+                            widgets.Label(label=self.service.connected_devices[0].alias),
+                            widgets.Label(label=f"{bluetoothService.connected_devices[0].battery_percentage:3.0f}%")
+                            ],
                     )
             else:
                 self.child = widgets.Box(
@@ -231,56 +234,103 @@ class spacer(widgets.Box):
             child = [widgets.Label(label = label)]
         )
 
+
 class mediaPlayer(widgets.Overlay):
-    service = mpris
+
+    class art(widgets.Picture):
+        def __init__(self, player):
+            super().__init__(
+                css_classes = ["image"],
+            )
+            if player is None:
+                self.image = "album-open"
+            else:
+                self.image = player.art_url
+
+    class labels(widgets.Box):
+        def __init__(self, player):
+            if player is None:
+                super().__init__(
+                    vertical = True,
+                    spacing = 10,
+                    child = [widgets.Label(label = "no music"), spacer()]
+                )
+            else:
+                super().__init__(
+                    vertical = True,
+                    spacing = 10,
+                    child = [
+                        widgets.Label(label = player.title[:40],wrap=True,wrap_mode='char'),
+                        widgets.Label(label = player.artist[:15],wrap=True,wrap_mode='char')
+                    ]
+                )
+    class buttons(widgets.Box):
+        def __init__(self, player):
+            super().__init__(
+                vexpand = True,
+                halign = "center",
+                valign = "center",
+                spacing = 10,
+                vertical = False,
+                child = [widgets.Button(
+                on_click= lambda self: player.previous(),
+                child=widgets.Icon(
+                    image="skip-prev",
+                    pixel_size = 25
+                )
+            ),
+            widgets.Button(
+                on_click= lambda self: player.play_pause(),
+                child=widgets.Icon(
+                    image="pause" if player and player.playback_status == "Paused" else "play",
+                    pixel_size = 25
+                )
+            ),
+            widgets.Button(
+                on_click= lambda self: player.next(),
+                child=widgets.Icon(
+                    image = "skip-next",
+                    pixel_size = 25
+                )
+            )]
+            )
+
+
     def draw(self):
         player = None
-        if len(self.service.players) >=1:
+        if len(mpris.players) >=1:
             player = mpris.players[-1]
-        children = [widgets.Box(child=[widgets.Label(style="margin : 1rem 0rem;",label=" " if player==None else " " + player.identity)]),
-            widgets.Box(
-                child=[widgets.Label(label=" no music " if player ==None else " " + player.title[:32]),
-                       widgets.Label(label=" " if player == None else player.artist[:30])],
-                vertical = True,
-                spacing = 4
-                ),
-            widgets.Box(
-            vertical=True,
-            child=[widgets.CenterBox(
-                start_widget=widgets.Button(
-                    on_click= lambda self: player.previous(),
-                    child=widgets.Icon(
-                        image="skip-prev",
-                        pixel_size = 25
-                    )
-                ),
-                center_widget=widgets.Button(
-                    on_click= lambda self: player.play_pause(),
-                    child=widgets.Icon(
-                        image="pause" if player and player.playback_status == "Paused" else "play",
-                        pixel_size = 25
-                        )
-                    ),
-                end_widget=widgets.Button(
-                    on_click= lambda self: player.next(),
-                    child=widgets.Icon(
-                        image = "skip-next",
-                        pixel_size = 25
-                    )
-                ),
-            ),
 
-                   ])]
-        self.overlays = [widgets.Box(child = children,  vertical=True)]
-        if player != None:
-            self.child = widgets.Picture(image=player.art_url, css_classes = ["image"])
+        self.overlays = [ widgets.Box(
+            css_classes = ["mediaplayerContents"],
+            homogeneous=True,
+            spacing = 10,
+            halign="center", # Centers it horizontally
+            valign="center",
+            child =[
+                self.art(player),
+                widgets.Box(
+                    vertical = True,
+                    vexpand = True,
+                    halign = "center",
+                    valign = "center",
+                    spacing = 10,
+                    child=[
+                        self.labels(player),
+                        self.buttons(player)
+                    ]
+                )
+            ])
+        ]
+
+
     def __init__(self):
-        
         super().__init__(
-            css_classes=["mediaPlayer", "controlCenterBlock"],
-            )
+            css_classes = ["mediaplayer"],
+            child = widgets.Button(css_classes = ["mediaplayerButton"],child = widgets.Box(child = [spacer(), spacer(), spacer(),spacer(), spacer(),spacer(),spacer()], vertical= True))
+        )
         self.draw()
-        
+
         mpris.connect("player_added", lambda y, x: self.draw())
         for players in mpris.players:
             players.connect("notify::playback-status", lambda y, x: self.draw())
@@ -291,7 +341,8 @@ class controlCenter(widgets.Window):
     def __init__(self):
         super().__init__(
 
-            anchor=["top","right", "bottom"],
+            #anchor=["top","right", "bottom"],
+            anchor=["right","bottom"],
             margin_bottom=10,
             margin_top=10,
             style="border-radius:2rem; margin-right:5.5rem;",
@@ -301,17 +352,16 @@ class controlCenter(widgets.Window):
     def show(self):
         self.is_visible = True
         self.child = widgets.EventBox(
-            child=[mediaPlayer(),
-                   buttonGrid(),
-                   topBar()],
+            child=[topBar(),
+                   mediaPlayer(),
+                   buttonGrid()
+                   ],
             vertical=True,
-            homogeneous=False,
             spacing=10,
             on_hover_lost=lambda self: self.hide(),
             )
- 
-    
+
+
     def hide(self):
         self.is_visible = False
         self.child = None
-
